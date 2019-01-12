@@ -1,0 +1,18 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+      "quotemark": [true, "single", "jsx-double"],
+      "semicolon": [true, "never"]
+    },
+    "rulesDirectory": [],
+    "exclude": [
+      "node_modules"
+    ],
+    "compilerOptions": {
+      "moduleResolution": "node"
+    }
+}
