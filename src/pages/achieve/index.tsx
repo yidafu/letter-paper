@@ -1,9 +1,11 @@
 import * as React from 'react'
 
-interface Props {}
+interface AchieveProps {
+  children: any,
+}
 
-export default class index extends React.Component<Props, {}> {
-  render() {
+export default class Achieve extends React.Component<AchieveProps, {}> {
+  public render() {
     return <div>achieve</div>
   }
 }

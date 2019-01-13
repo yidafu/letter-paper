@@ -1,9 +1,11 @@
 import * as React from 'react'
 
-interface Props {}
+interface TagProps {
+  children: any,
+}
 
-export default class Post extends React.Component<Props, {}> {
-  render() {
+export default class Tag extends React.Component<TagProps, {}> {
+  public render() {
     return (
       <div>Tag</div>
     )

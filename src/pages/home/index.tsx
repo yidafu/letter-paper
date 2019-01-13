@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-interface Props {}
+interface HomeProps {
+  children: any,
+}
 
-export default class Home extends React.Component<Props, {}> {
-  render() {
+export default class Home extends React.Component<HomeProps, {}> {
+  public render() {
     return (
     <div>
       <h1>
@@ -31,4 +33,3 @@ export default class Home extends React.Component<Props, {}> {
     )
   }
 }
-

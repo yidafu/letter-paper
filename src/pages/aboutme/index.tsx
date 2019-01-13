@@ -1,9 +1,10 @@
 import * as React from 'react'
+interface AboutMeProps {
+  children: any,
+}
 
-interface Props {}
-
-export default class AboutMe extends React.Component<Props, {}> {
-  render() {
+export default class AboutMe extends React.Component<AboutMeProps, {}> {
+  public render() {
     return <div>about me</div>
   }
 }

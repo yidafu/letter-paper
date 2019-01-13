@@ -1,9 +1,11 @@
 import * as React from 'react'
 
-interface Props {}
+interface PostProps {
+  children: any,
+}
 
-export default class Post extends React.Component<Props, {}> {
-  render() {
+export default class Post extends React.Component<PostProps, {}> {
+  public render() {
     return (
       <div>post</div>
     )
