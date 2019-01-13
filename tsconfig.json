@@ -10,7 +10,8 @@
     "jsx": "react",
     "paths": {
       "@/*": ["src/*"],
-      "comonent": [ "src/component" ]
+      "component": ["src/component"],
+      "squid": ["src/squid"]
     }
   },
   "include": [

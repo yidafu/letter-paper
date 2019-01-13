@@ -19,7 +19,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.join(__dirname, '../src'),
-      'component': path.join(__dirname, '../src/compoenent')
+      'component': path.join(__dirname, '../src/compoenent'),
+      'squid': path.join(__dirname, '../src/squid'),
     },
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
