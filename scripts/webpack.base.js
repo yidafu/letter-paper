@@ -17,6 +17,10 @@ module.exports = {
   },
 
   resolve: {
+    alias: {
+      '@': path.join(__dirname, '../src'),
+      'component': path.join(__dirname, '../src/compoenent')
+    },
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
 

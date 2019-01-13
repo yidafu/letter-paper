@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "es6",
     "moduleResolution": "node",
     "target": "es6",
-    "jsx": "react"
+    "jsx": "react",
+    "paths": {
+      "@/*": ["src/*"],
+      "comonent": [ "src/component" ]
+    }
   },
   "include": [
     "./src/**/*"
