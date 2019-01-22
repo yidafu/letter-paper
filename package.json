@@ -74,7 +74,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tslint --fix -c tsconfig.json -p .",
+      "pre-commit": "eslint ./src -f table --fix",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
