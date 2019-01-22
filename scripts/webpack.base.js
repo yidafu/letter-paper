@@ -25,7 +25,7 @@ module.exports = {
       'component': path.join(__dirname, '../src/compoenent'),
       'squid': path.join(__dirname, '../src/squid'),
     },
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.vue', '.js', '.json']
   },
 
   module: {
