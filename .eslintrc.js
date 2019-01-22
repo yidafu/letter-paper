@@ -19,6 +19,7 @@ module.exports = {
             SwitchCase: 1,
             flatTernaryExpressions: true
         }
-    ]
+    ],
+    'eol-last': ["error", "always"]
   }
 };
