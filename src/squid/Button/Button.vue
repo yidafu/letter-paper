@@ -1,16 +1,22 @@
 <template>
-  <button class="squid-btn .squid-btn-primary">
-    <slot />
-  </button>
+  <wave>
+    <button class="squid-btn squid-btn-primary">
+      <slot />
+    </button>
+  </wave>
 </template>
 
 <script>
+import Wave from './Wave.vue';
+
   export default {
-    
+    components: {
+      wave: Wave,
+    }
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../scss/variables.scss';
 
 /**
@@ -22,13 +28,13 @@
     box-shadow: 0 0.5em 5px 0px #aaa;
   }
   100% {
-    box-shadow: 0px 1px 5px 0px #aaa;
+    box-shadow: 0px 0.1em 5px 0px #aaa;
   }
 }
 .squid-btn:not(:disabled) {
   // @see https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
   // image size limit to 32x32
-  cursor: url(../asset/pointer-outline.png) , pointer;
+  cursor: /*url(../asset/pointer-outline.png) ,*/ pointer;
 }
 .squid-btn {
   display: inline-block;
@@ -52,12 +58,12 @@
 .squid-btn:active {
   outline: none;
 }
-.squid-btn:active {
-  animation: btn-active;
-  animation-duration: 0.3s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease;
-}
+// .squid-btn:active {
+//   animation: btn-active;
+//   animation-duration: 100ms;
+//   animation-iteration-count: 1;
+//   animation-timing-function: ease;
+// }
 
 .squid-btn-primary {
   background-color: $primary-color;
