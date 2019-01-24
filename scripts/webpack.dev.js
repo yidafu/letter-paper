@@ -2,9 +2,11 @@ const path = require('path')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
-const base = require('./webpack.base')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
+const base = require('./webpack.base')
+const mock = require('../mock')
+// const apiMocker = require('mocker-api')
 module.exports = merge(base, {
 
   mode: 'development',
@@ -13,16 +15,18 @@ module.exports = merge(base, {
     filename: '[name].boudle.js',
     path: path.join(__dirname, '../dist')
   },
-  
+
   devServer: {
-    contentBase: path.join(__dirname, '../dist')
+    after: mock,
+    clientLogLevel: 'warning',
+    contentBase: path.join(__dirname, '../dist'),
   },
 
   module: {
     rules: [{
         test: /\.css$/,
         use: [
-          // MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           "css-loader",
           'style-loader'
         ]
