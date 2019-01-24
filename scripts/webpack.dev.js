@@ -1,12 +1,12 @@
-const path = require('path')
-const merge = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const path = require('path');
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const base = require('./webpack.base')
-const mock = require('../mock')
-// const apiMocker = require('mocker-api')
+const base = require('./webpack.base');
+const mock = require('../mock');
+
 module.exports = merge(base, {
 
   mode: 'development',

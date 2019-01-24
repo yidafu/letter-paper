@@ -30,26 +30,26 @@ module.exports = {
 
   module: {
     rules: [
-    {
-      test: /\.js$/,
-      exclude: file => (
-        /node_modules/.test(file) &&
+      {
+        test: /\.js$/,
+        exclude: file => (
+          /node_modules/.test(file) &&
           !/\.vue\.js/.test(file)
-      ),
-      use: [{
-        loader: 'source-map-loader'
-      }, {
-        loader: 'babel-loader',
-      }]
-    },
-    {
-      test: /\.vue$/,
-      loader: 'vue-loader'
-    },
-    { // load font
+        ),
+        use: [{
+          loader: 'source-map-loader'
+        }, {
+          loader: 'babel-loader',
+        }]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      { // load font
       // Capture eot, ttf, woff, and woff2
-      test: /\.(eot|ttf|woff|woff2)$/,
-      use: {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: {
         /**
 
            * url-loader 是 file-loader 的封装，返回指定文件的
@@ -57,49 +57,49 @@ module.exports = {
            * 默认使用 file-loader 来处理。
            * @type {String}
            */
-        loader: 'url-loader',
-        options: {
-          limit: 4048,
-          publicPath: './css/font/',
-          outputPath: './css/font/',
-          name: '[name].[ext]'
-        }
-      },
-    },
-    {
-      test: /\.(gif|png|jpe?g|svg)$/i,
-      use: [{
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'images/'
-        }
-      }]
-    },
-    {
-      test: /\.css$/,
-      use: [
-        'vue-style-loader',
-        {
-          loader: 'css-loader',
+          loader: 'url-loader',
           options: {
-            modules: true,
-            localIdentName: '[local]_[hash:base64:8]',
-            importLoaders: 1
+            limit: 4048,
+            publicPath: './css/font/',
+            outputPath: './css/font/',
+            name: '[name].[ext]'
           }
         },
-        'postcss-loader'
-      ]
-    },
-    {
-      test: /\.html$/,
-      use: [{
-        loader: 'html-loader',
-        options: {
-          minimize: false
-        }
-      }]
-    }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/'
+          }
+        }]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]_[hash:base64:8]',
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: false
+          }
+        }]
+      }
     ]
   },
 

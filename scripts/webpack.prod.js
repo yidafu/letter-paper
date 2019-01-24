@@ -38,7 +38,7 @@ module.exports = merge(base, {
       {
         test: /\.scss$/,
         use: [{
-        // equal to style-loader ??
+          // equal to style-loader ??
           loader: MiniCssExtractPlugin.loader,
         }, {
           loader: 'css-loader',
