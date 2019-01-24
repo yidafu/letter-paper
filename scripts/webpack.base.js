@@ -25,22 +25,7 @@ module.exports = {
   },
 
   module: {
-    rules: [{
-        test: /\.(ts|tsx)?$/,
-        loader: "awesome-typescript-loader"
-      }, 
-      // 这两行是处理 react 相关的内容
-      {
-        // enforce: "pre",
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [ {
-            loader: "source-map-loader"
-          }, {
-            loader: 'babel-loader',
-        }]
-      },
-     
+    rules: [
       { // load font
         // Capture eot, ttf, woff, and woff2
         test: /\.(eot|ttf|woff|woff2)$/,
