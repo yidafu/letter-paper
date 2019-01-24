@@ -29,10 +29,7 @@ module.exports = {
   },
 
   module: {
-    rules: [{
-      test: /\.(ts|tsx)?$/,
-      loader: 'awesome-typescript-loader'
-    },
+    rules: [
     {
       test: /\.js$/,
       exclude: file => (
@@ -54,6 +51,7 @@ module.exports = {
       test: /\.(eot|ttf|woff|woff2)$/,
       use: {
         /**
+
            * url-loader 是 file-loader 的封装，返回指定文件的
            * DataUrl。但是如果文件大于指定的限制`limit`，就会
            * 默认使用 file-loader 来处理。
