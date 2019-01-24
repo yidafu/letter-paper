@@ -24,18 +24,10 @@ module.exports = merge(base, {
 
   module: {
     rules: [
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     // MiniCssExtractPlugin.loader,
-      //     "css-loader",
-      //     'style-loader'
-      //   ]
-      // },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [{
-          loader: 'style-loader',
+          loader: 'vue-style-loader',
           options: {
             sourceMap: true
           }

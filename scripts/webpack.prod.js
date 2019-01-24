@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const MiniCssPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -27,18 +26,9 @@ module.exports = merge(base, {
 
   module: {
     rules: [
-    // TODO mini <style /> css
-    //   {
-    //   test: /\.css$/,
-    //   use: [
-    //     MiniCssPlugin.loader,
-    //     'css-loader'
-    //   ]
-    // },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [{
-          // equal to style-loader ??
           loader: MiniCssExtractPlugin.loader,
         }, {
           loader: 'css-loader',
@@ -75,7 +65,7 @@ module.exports = merge(base, {
     new webpack.NamedChunksPlugin(
       chunk => chunk.name || 'faceless-chunk'
     ),
-    new MiniCssPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].[chunkhash:6].css',
       chunkFilename: '[id].css'
     })

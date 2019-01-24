@@ -22,10 +22,10 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.join(__dirname, '../src'),
-      'component': path.join(__dirname, '../src/compoenent'),
+      'components': path.join(__dirname, '../src/components'),
       'squid': path.join(__dirname, '../src/squid'),
     },
-    extensions: ['.vue', '.js', '.json']
+    extensions: ['.vue', '.js', '.json'],
   },
 
   module: {
@@ -75,21 +75,6 @@ module.exports = {
             outputPath: 'images/'
           }
         }]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[local]_[hash:base64:8]',
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
-        ]
       },
       {
         test: /\.html$/,
