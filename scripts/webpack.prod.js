@@ -1,11 +1,11 @@
-const merge = require('webpack-merge')
-const webpack = require('webpack')
-const MiniCssPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const MiniCssPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const base = require('./webpack.base')
+const base = require('./webpack.base');
 
 
 module.exports = merge(base, {
@@ -26,43 +26,45 @@ module.exports = merge(base, {
   },
 
   module: {
-    rules: [{
-        test: /\.css$/,
-        use: [
-          MiniCssPlugin.loader,
-          'css-loader'
-        ]
-      },
+    rules: [
+    // TODO mini <style /> css
+    //   {
+    //   test: /\.css$/,
+    //   use: [
+    //     MiniCssPlugin.loader,
+    //     'css-loader'
+    //   ]
+    // },
       {
         test: /\.scss$/,
         use: [{
-            // equal to style-loader ??
-            loader: MiniCssExtractPlugin.loader,
-          }, {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              parser: 'postcss-scss',
-              plugins: (loader) => [
-                require('postcss-import')({
-                  root: loader.resourcePath
-                }),
-                require('postcss-preset-env')(),
-                require('cssnano')()
-              ]
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+        // equal to style-loader ??
+          loader: MiniCssExtractPlugin.loader,
+        }, {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true
           }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            parser: 'postcss-scss',
+            plugins: (loader) => [
+              require('postcss-import')({
+                root: loader.resourcePath
+              }),
+              require('postcss-preset-env')(),
+              require('cssnano')()
+            ]
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }
         ]
       },
     ]
@@ -78,4 +80,4 @@ module.exports = merge(base, {
       chunkFilename: '[id].css'
     })
   ]
-})
+});

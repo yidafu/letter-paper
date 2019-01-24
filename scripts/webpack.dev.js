@@ -23,14 +23,15 @@ module.exports = merge(base, {
   },
 
   module: {
-    rules: [{
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          'style-loader'
-        ]
-      },
+    rules: [
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     // MiniCssExtractPlugin.loader,
+      //     "css-loader",
+      //     'style-loader'
+      //   ]
+      // },
       {
         test: /\.scss$/,
         use: [{
@@ -60,15 +61,16 @@ module.exports = merge(base, {
           options: {
             sourceMap: true
           }
-        }, ]
+        }]
       },
+
     ]
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     }),
     new CleanWebpackPlugin(['dist']),
     // new BundleAnalyzerPlugin({
@@ -84,4 +86,4 @@ module.exports = merge(base, {
     //   logLevel: 'info'
     // }),
   ]
-})
+});
