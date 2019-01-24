@@ -1,17 +1,17 @@
 <template>
-  <wave>
+  <s-ripple>
     <button class="squid-btn squid-btn-primary">
       <slot />
     </button>
-  </wave>
+  </s-ripple>
 </template>
 
 <script>
-import Wave from './Wave.vue';
+import Ripple from './Ripple.vue';
 
   export default {
     components: {
-      wave: Wave,
+      's-ripple': Ripple,
     }
   }
 </script>
