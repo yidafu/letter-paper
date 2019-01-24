@@ -9,11 +9,11 @@
 <script>
 import Ripple from './Ripple.vue';
 
-  export default {
-    components: {
-      's-ripple': Ripple,
-    }
+export default {
+  components: {
+    's-ripple': Ripple,
   }
+};
 </script>
 
 <style lang="scss">

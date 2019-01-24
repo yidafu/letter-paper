@@ -14,44 +14,42 @@ import Wave from './Wave.vue';
 const DURATION = 550;
 
 export default {
+  components: {
+    's-wave': Wave,
+  },
   data: () => ({
     ripples: [], // {style, uuid, timer}
     isWave: false,
   }),
-  computed: {
-  },
-  components: {
-    's-wave': Wave,
-  },
   destroyed() {
-    this.ripples.forEach( wave => window.clearTimeout( wave.timer ) )
+    this.ripples.forEach(wave => window.clearTimeout(wave.timer));
   },
   methods: {
     getStyle(e) {
-      const elRect = this.$el.getBoundingClientRect()
-      const { width, height } = elRect
-      const { offsetX, offsetY } = e
+      const elRect = this.$el.getBoundingClientRect();
+      const { width, height } = elRect;
+      const { offsetX, offsetY } = e;
 
-      const mouseOffsetX = Math.max( offsetX, width - offsetX )
-      const mouseOffsetY = Math.max( offsetY, height - offsetY )
+      const mouseOffsetX = Math.max(offsetX, width - offsetX);
+      const mouseOffsetY = Math.max(offsetY, height - offsetY);
 
-      const radius = Math.sqrt( mouseOffsetX ** 2 + mouseOffsetY ** 2) 
-      const diameter = Math.round( radius * 2 ) + 'px'
+      const radius = Math.sqrt(mouseOffsetX ** 2 + mouseOffsetY ** 2);
+      const diameter = Math.round(radius * 2) + 'px';
 
-      const top = Math.round( offsetY - radius ) + 'px'
-      const left =  Math.round( offsetX - radius ) + 'px'
-      
+      const top = Math.round(offsetY - radius) + 'px';
+      const left =  Math.round(offsetX - radius) + 'px';
+
       return {
         width: diameter,
         height: diameter,
         top,
         left,
-      }
+      };
     },
     handleClick(e) {
       const style = this.getStyle(e);
-      const uuid = shortid.generate()
-      const timer = window.setTimeout( () => this.clearWave(uuid), DURATION )
+      const uuid = shortid.generate();
+      const timer = window.setTimeout(() => this.clearWave(uuid), DURATION);
       this.ripples.push({
         style,
         uuid,
@@ -59,10 +57,10 @@ export default {
       });
     },
     clearWave(uuid) {
-      this.ripples = this.ripples.filter( wave => wave.uuid !== uuid );
+      this.ripples = this.ripples.filter(wave => wave.uuid !== uuid);
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
