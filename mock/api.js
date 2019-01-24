@@ -31,10 +31,11 @@ router.get('/post/:id', function(req, res, next) {
     })
   )
 })
+
 router.get('/tags', function (req, res, next) {
   res.json(
     Array( Math.round(Math.random() * 10) + 1 ).fill(Mock.mock({
-      'value': Mock.mock('@cword(2,4)'),
+      'name': Mock.mock('@cword(2,4)'),
       'tags|3-9': [ {
         'id': Mock.mock('@id'),
         'title': Mock.mock('@ctitle'),
@@ -42,10 +43,11 @@ router.get('/tags', function (req, res, next) {
     }))
   )
 })
+
 router.get('/tags/:tags', function (req, res, next) {
   res.json(
     Mock.mock({
-      'value': Mock.mock('@cword(2,4)'),
+      'name': Mock.mock('@cword(2,4)'),
       'tags|3-9': [{
         'id': Mock.mock('@id'),
         'title': Mock.mock('@ctitle'),
@@ -57,7 +59,7 @@ router.get('/tags/:tags', function (req, res, next) {
 router.get('/archive', function (req, res, next) {
   res.json(
     Array(Math.round(Math.random() * 10) + 1).fill(Mock.mock({
-      'value': Mock.mock('@cword(2,4)'),
+      'name': Mock.mock('@cword(2,4)'),
       'tags|3-9': [{
         'id': Mock.mock('@id'),
         'title': Mock.mock('@ctitle'),
@@ -65,10 +67,11 @@ router.get('/archive', function (req, res, next) {
     }))
   )
 })
+
 router.get('/archive/:date', function (req, res, next) {
   res.json(
     Mock.mock({
-      'value': Mock.mock('@cword(2,4)'),
+      'name': Mock.mock('@cword(2,4)'),
       'tags|3-9': [{
         'id': Mock.mock('@id'),
         'title': Mock.mock('@ctitle'),
@@ -76,4 +79,5 @@ router.get('/archive/:date', function (req, res, next) {
     })
   )
 })
+
 module.exports = router;
