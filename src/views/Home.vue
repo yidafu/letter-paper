@@ -7,12 +7,12 @@
 
 <script>
 // @ is an alias to /src
-import Button from 'squid/Button'
+import Button from 'squid/Button';
 
 export default {
   name: 'home',
   components: {
     's-button': Button,
   }
-}
+};
 </script>
