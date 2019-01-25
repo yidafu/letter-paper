@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Home from './views/Home';
 
 Vue.use(Router);
 
@@ -16,27 +16,27 @@ export default new Router({
     {
       path: '/about-me',
       name: 'about',
-      component: () => import('./views/Aboutme.vue')
+      component: () => import(/* webpackChunkName: "about-me" */ './views/Aboutme')
     },
     {
       path: '/achieve',
       name: 'achieve',
-      component: () => import('./views/Achieve.vue')
+      component: () => import(/* webpackChunkName: "archive" */ './views/Archive')
     },
     {
       path: '/post',
       name: 'post',
-      component: () => import('./views/Post.vue')
+      component: () => import(/* webpackChunkName: "post" */ './views/Post')
     },
     {
       path: '/tag',
       name: 'tag',
-      component: () => import('./views/Tag.vue')
+      component: () => import(/* webpackChunkName: "tag" */ './views/Tag')
     },
     {
       path: '*',
       name: 'nomatch',
-      component: () => import('./views/404.vue')
+      component: () => import(/* webpackChunkName: "not-found" */ './views/404.vue')
     }
   ]
 });
