@@ -5,8 +5,8 @@ router.get('/', function(req, res, next) {
   res.json(
     Mock.mock({
       'count|21-29': 21,
-      'postList|10': [{
-        'id': Mock.mock('@id'),
+      'posts|10': [{
+        'id|1-29': 1,
         'title': Mock.mock('@ctitle'),
         'summary': Mock.mock('@cparagraph(5, 7)'),
         'date': Mock.mock('@date("yyyy-MM-dd")'),
