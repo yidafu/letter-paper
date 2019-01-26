@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <navbar></navbar>
-    <summary-list :posts="posts" />
+    <router-link to="/post">Jump to post</router-link>
+    <letter-list />
   </div>
 </template>
 
@@ -10,34 +11,18 @@
 import { mapActions, mapGetters } from 'vuex';
 import Button from 'squid/Button';
 import Image from 'squid/Image';
-import SummaryList from 'components/SummaryList';
+import LetterList from 'components/LetterList';
 import Navbar from 'components/Navbar';
 
 export default {
   name: 'home',
+
   components: {
     's-button': Button,
-    SummaryList,
+    LetterList,
     Navbar,
     graph: Image,
   },
-  data: () => ({
-  }),
-  computed: {
-    ...mapGetters([
-      'posts'
-    ])
-  },
-  created() {
-    this.getPosts();
-  },
-  methods: {
-    ...mapActions(
-      [
-        'getPosts'
-      ]
-    )
-  }
 };
 </script>
 

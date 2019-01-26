@@ -1,11 +1,36 @@
 <template>
-  <article class="letter">
-    <slot></slot>
+  <article @click="$emit('click', $event, data.id)" class="letter" :class="{'zoom-out': data.status === 'hidden', 'zoom-in': data.status === 'fulltext'}">
+    <!-- {{log('letter templete: ' , data.status, data)}} -->
+    <!-- <letter-link :to="`/post/${data.id}`"> -->
+      <h1 >{{data.title}}</h1>
+    <!-- </letter-link> -->
+    <div v-if="data.status === 'fulltext'">
+      {{data.content}}
+    </div>
+    <div v-else>
+      {{ data.summary }}
+    </div>
   </article>
 </template>
 
 <script>
+
 export default {
+  components: {
+  },
+  props: {
+    data: Object,
+  },
+  watch: {
+  },
+  beforeUpdate() {
+    console.log('before update', this.data.id, this.data);
+  },
+  methods: {
+    log(...arg) {
+      console.log(...arg);
+    }
+  },
 
 };
 </script>
@@ -22,11 +47,13 @@ padding 2.54cm 3.18cm -> 15px
 */
   .letter {
     position: relative;
+    overflow-y: hidden;
+
     /* top: -50px; */
 
     margin: 0 auto;
     box-sizing: border-box;
-    padding: $a4-padding-top $a4-padding-left;
+    padding: $a4-padding-top $a4-padding-left 0 $a4-padding-left;
     width: $a4-width;
     /* height: 296mm; */
 
@@ -34,11 +61,30 @@ padding 2.54cm 3.18cm -> 15px
 
     box-shadow: 2px 0 1em 2px #000;
   }
-  // .letter:not(:first-child),
-  .letter:not(:last-child) {
-    // top: - $a4-padding-top - 5mm;
-    padding-bottom: 0;
+  .letter:last-child {
+    padding-bottom: $a4-padding-left;
+  }
 
-    // background-color: #000 !important;
+  .zoom-out {
+    animation-name: shrink;
+    animation-duration: 5s;
+  }
+    .zoom-in {
+    animation-name: expend;
+    animation-duration: 5s;
+  }
+  @keyframes shrink {
+
+    100% {
+      height: 0;
+    }
+  }
+    @keyframes expend {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
   }
 </style>

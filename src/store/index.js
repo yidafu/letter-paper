@@ -8,7 +8,18 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     coount: 0,
-    posts: [],
+    posts: [
+      /** {
+       *   category,
+       *   date,
+       *   id,
+       *   summary,
+       *   tag,
+       *   title,
+       *   status, summay, fulltext , hidden,
+       * }
+       */
+    ],
     tags: [],
     archive: [],
   },
@@ -19,10 +30,14 @@ export default new Vuex.Store({
       // console.log(state);
     },
     [SET_POSTS](state, posts) {
+      console.log('SET_POSTS', posts);
       for (const post of posts) {
-        state.posts[post.id] = post;
+        state.posts[post.id] = {
+          status: 'summary',
+          ...state.posts[post.id],
+          ...post,
+        };
       }
-      console.log(state);
     }
   },
   actions: {
@@ -30,11 +45,19 @@ export default new Vuex.Store({
       const homeData = await HomeReq.getPosts();
       commit(SET_POSTS_COUNT, homeData.count);
       commit(SET_POSTS, homeData.posts);
+    },
+    async getPostByID({ commit }, id) {
+      const postData = await HomeReq.getPostByID(id);
+      // this because Mock.mock('@id) will generate random ID
+      if (process.env.NODE_ENV === 'development') {
+        postData.id = id;
+      }
+      commit(SET_POSTS, [postData]);
     }
   },
   getters: {
-    getPostByID(state) {
-      return (id) => state;
+    currentPost(state) {
+      return (id) => state.posts[id];
     },
     posts(state) {
       return state.posts.filter(post => !!post);

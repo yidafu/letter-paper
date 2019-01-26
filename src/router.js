@@ -24,7 +24,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "archive" */ './views/Archive')
     },
     {
-      path: '/post',
+      path: '/post/:id',
       name: 'post',
       component: () => import(/* webpackChunkName: "post" */ './views/Post')
     },
