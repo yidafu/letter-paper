@@ -28,12 +28,11 @@ export default {
   },
   watch: {
     posts(newPost, oldPost) {
-      console.log('posts changed');
-      console.log(newPost, oldPost);
+      console.log('watch posts');
     }
   },
   async created() {
-    if (this.$route.path.indexOf('/post') !== -1) {
+    if (this.$route.path.indexOf('/post') === -1) {
       await this.getPosts();
     }
     this.posts = this.statePosts;
@@ -51,6 +50,7 @@ export default {
           ...this.currentPost(id),
         };
       }
+
       fullPostData.status = fullPostData.status === 'fulltext' ? 'summary' : 'fulltext';
 
       // change clicked post display status
@@ -60,13 +60,11 @@ export default {
           return { ...post };
         }
       );
+
       statusChangedPosts[postIdx] = fullPostData;
-      // console.log(statusChangedPosts)
+      // statusChangedPosts.pop()
       this.posts = statusChangedPosts;
     },
-    // enter(el, done) {
-
-    // },
     ...mapActions([
       'getPosts',
       'getPostByID',
@@ -80,19 +78,30 @@ export default {
 // .slide-in-enter {
 //   transform: opacity .5s;
 // }
-.slide-in-enter {
-  animation: bounce-in .5s;
-}
+// .slide-in-enter,
+// .slide-in-leave {
+//   // animation: bounce-in .5s;
+//   transition: width 0.5s;
+// }
 
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
+.slide-in-move {
+  transition: transform 1s;
 }
+/**
+  * enter
+  * enter-active
+  * enter-to
+  * leave
+  * leave-active
+  * leave-to
+  */
+// .slide-in-enter,
+// .slide-in-leave-to {
+//   opacity: 0;
+//   transform: translateY(30px);
+// }
+
+// .slide-in-leave-active {
+//   position: absolute;
+// }
 </style>

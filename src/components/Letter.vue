@@ -1,9 +1,10 @@
 <template>
-  <article @click="$emit('click', $event, data.id)" class="letter" :class="{'zoom-out': data.status === 'hidden', 'zoom-in': data.status === 'fulltext'}">
-    <!-- {{log('letter templete: ' , data.status, data)}} -->
-    <!-- <letter-link :to="`/post/${data.id}`"> -->
+  <article @click="$emit('click', $event, data.id)" class="letter" >
+    <router-link :to="`/post/${data.id}`">
       <h1 >{{data.title}}</h1>
-    <!-- </letter-link> -->
+    </router-link>
+
+    <div>{{data.summary}}</div>
     <div v-if="data.status === 'fulltext'">
       {{data.content}}
     </div>
