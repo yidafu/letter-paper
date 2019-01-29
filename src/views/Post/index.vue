@@ -2,43 +2,25 @@
   <div class="home">
     <navbar></navbar>
     <router-link to="/">Jump to home</router-link>
-    <letter-list :posts="posts" />
+    <letter-list />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { mapActions, mapGetters } from 'vuex';
 import Button from 'squid/Button';
 import Image from 'squid/Image';
 import LetterList from 'components/LetterList';
 import Navbar from 'components/Navbar';
 
 export default {
-  name: 'home',
+  name: 'post',
   components: {
     's-button': Button,
     LetterList,
     Navbar,
     graph: Image,
   },
-  data: () => ({
-  }),
-  computed: {
-    ...mapGetters([
-      'posts'
-    ])
-  },
-  created() {
-    // this.getPosts();
-  },
-  methods: {
-    ...mapActions(
-      [
-        'getPosts'
-      ]
-    )
-  }
 };
 </script>
 
