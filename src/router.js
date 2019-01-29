@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home';
+import Post from './views/Post';
 
 Vue.use(Router);
 
@@ -11,7 +11,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Post
     },
     {
       path: '/about-me',
@@ -26,7 +26,7 @@ export default new Router({
     {
       path: '/post/:id',
       name: 'post',
-      component: () => import(/* webpackChunkName: "post" */ './views/Post')
+      component: Post
     },
     {
       path: '/tag',
