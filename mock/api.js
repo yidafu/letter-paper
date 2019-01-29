@@ -1,34 +1,16 @@
 const router = require('express').Router();
 const Mock = require('mockjs');
+const postData = require('./posts.json');
 
 router.get('/', function(req, res, next) {
   res.json(
-    Mock.mock({
-      'count|21-29': 21,
-      'posts|10': [{
-        'id|1-29': 1,
-        'title': Mock.mock('@ctitle'),
-        'summary': Mock.mock('@cparagraph(5, 7)'),
-        'date': Mock.mock('@date("yyyy-MM-dd")'),
-        'tag|3-6': [Mock.mock('@cword(3)')],
-        'category': Mock.mock('@cword(3)'),
-      }]
-    })
+    postData
   );
 });
 
 router.get('/post/:id', function(req, res, next) {
   res.json(
-    Mock.mock({
-      'id': Mock.mock('@id'),
-      'title': Mock.mock('@ctitle'),
-      'content': Mock.mock('@cparagraph(50, 70)'),
-      'date': Mock.mock('@date("yyyy-MM-dd")'),
-      'tag|3-6': [Mock.mock('@cword(3)')],
-      'category': Mock.mock('@cword(3)'),
-      'next': Mock.mock('@id'),
-      'pre': Mock.mock('@id'),
-    })
+    postData.posts[req.params.id]
   );
 });
 
