@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import * as HomeReq from '@/views/Home/services';
+import * as PostReq from '@/views/Post/services';
 import { SET_POSTS_COUNT, SET_POSTS } from './types';
 
 Vue.use(Vuex);
@@ -16,7 +16,7 @@ export default new Vuex.Store({
        *   summary,
        *   tag,
        *   title,
-       *   status, summay, fulltext , hidden,
+       *   status, boolean false -> summary, true -> content
        * }
        */
     ],
@@ -27,13 +27,11 @@ export default new Vuex.Store({
     [SET_POSTS_COUNT](state, newCount) {
       state.count = newCount;
       state.posts = Array(newCount);
-      // console.log(state);
     },
     [SET_POSTS](state, posts) {
-      console.log('SET_POSTS', posts);
       for (const post of posts) {
         state.posts[post.id] = {
-          status: 'summary',
+          status: false,
           ...state.posts[post.id],
           ...post,
         };
@@ -42,26 +40,37 @@ export default new Vuex.Store({
   },
   actions: {
     async getPosts({ commit }) {
-      const homeData = await HomeReq.getPosts();
+      const homeData = await PostReq.getPosts();
       commit(SET_POSTS_COUNT, homeData.count);
       commit(SET_POSTS, homeData.posts);
     },
     async getPostByID({ commit }, id) {
-      const postData = await HomeReq.getPostByID(id);
-      // this because Mock.mock('@id) will generate random ID
-      if (process.env.NODE_ENV === 'development') {
-        postData.id = id;
-      }
+      const postData = await PostReq.getPostByID(id);
       commit(SET_POSTS, [postData]);
+    },
+    updatePosts({ commit }, posts) {
+      commit(SET_POSTS, posts);
     }
   },
   getters: {
     currentPost(state) {
-      return (id) => state.posts[id];
+      return (id) => {
+        return state.posts[id];
+      };
+    },
+    postIdx(state) {
+      return (postID) => state.posts.filter(post => !!post).findIndex(
+        post => {
+          return post.id === Number(postID);
+        }
+      );
     },
     posts(state) {
       return state.posts.filter(post => !!post);
-    }
+    },
+    postIDs(state) {
+      return state.posts.filter(post => !!post).map(post => Number(post.id));
+    },
   }
 
 });
