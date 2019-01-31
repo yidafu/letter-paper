@@ -1,0 +1,15 @@
+{
+  "name": "letter-paper-server",
+  "version": "0.0.1",
+  "description": "none",
+  "main": "index.js",
+  "author": "yidafu",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "git-clone": "^0.1.0",
+    "glob": "^7.1.3",
+    "yaml": "^1.3.1"
+  }
+}
