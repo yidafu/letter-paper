@@ -1,13 +1,12 @@
 <template>
     <article
-      @click="$emit('click', $event, data.id)"
+      @click="handleClick"
       :id="`article-${data.id}`"
       :data-article-id="data.id"
       class="letter"
       :class="{'pull-back': shrink}"
     >
       <h1 >{{data.title}}</h1>
-      <!-- {{log(content)}} -->
       <div class="content">
         {{content}}
       </div>
@@ -15,7 +14,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'letter',
@@ -24,11 +23,9 @@ export default {
     index: Number,
   },
   data() {
-    // const data =
     return {
-      // content: '',
       shrink: false,
-      data: {},
+      data: {}, // doesn't has content property
       firstRect: {},
       lastRect: {},
     };
@@ -36,29 +33,17 @@ export default {
   computed: {
     content() {
       const { data } = this;
-      return data.status ? data.content : data.summary;
+      let content = '';
+      if(data.status) content = this.currentPost(data.id).content
+      return data.status ? content : data.summary;
     },
     ...mapGetters([
       'currentPost',
+      'postIdx',
     ]),
   },
   watch: {
-    '$route'() {
-      if (this.$route.path === '/') { // Index page
-
-      } else if (this.$route.path.indexOf('/post') !== -1) { // post page
-        this.firstRect = this.$el.getBoundingClientRect();
-        if (this.$route.params.id === this.data.id) { // id matched
-          this.data.status = true;
-          this.shrink = false;
-        } else { // id not matched
-          // this.firstRect = {height: '20px'}
-          // this.slideArticle()
-          this.shrink = true;
-          this.data.status = false;
-        }
-      }
-    }
+    '$route': 'routeChange',
   },
 
   created() {
@@ -69,8 +54,16 @@ export default {
     this.slideArticle();
   },
   methods: {
+    ...mapActions([
+      'updatePosts',
+      'getPostByID',
+    ]),
     log(...arg) {
       console.log(...arg);
+    },
+    handleClick() {
+      const id = this.data.id;
+      this.$router.push(`/post/${id}`);
     },
     slideArticle() {
       const { firstRect } = this;
@@ -83,15 +76,48 @@ export default {
       // const duration = firstRect.height > lastRect.height ? 100 : 500;
       // const baseTop = window.pageYOffset + firstRect.top;
 
-      const animateHandle = articleElm.animate([
+      /*const animateHandle = */articleElm.animate([
         { height: firstRect.height + 'px' },
         { height: lastRect.height + 'px' },
       ], {
         duration: 500,
       });
-      animateHandle.onfinish = function() {
-        console.log('animation finshed:', this);
-      };
+      // animateHandle.onfinish = function() {
+      //   console.log('animation finshed');
+      // };
+    },
+
+    async updatePost(postID, partialPost = {}) {
+
+      let postIdx = this.postIdx(postID);
+
+      // get new copy without `__ob__`
+      let postCopy = { ...this.currentPost(postID), ...partialPost };
+
+      if (!partialPost.hasOwnProperty('status')) {
+        postCopy.status = !this.currentPost(postID).status;
+      }
+
+      this.updatePosts([ postCopy ]);
+    },
+     async routeChange() {
+      if (this.$route.path === '/') { // Index page
+        this.shrink = false;
+      } else if (this.$route.path.indexOf('/post') !== -1) { // post page
+        this.firstRect = this.$el.getBoundingClientRect();
+        const postID = Number(this.$route.params.id);
+        if ( postID === this.data.id) { // id matched
+          await this.getPostByID(postID);
+
+          this.updatePost(postID, { status: true });
+
+          this.data.status = true;
+          this.shrink = false;
+        } else { // id not matched
+          this.shrink = true;
+          this.data.status = false;
+        }
+      }
     }
   },
 

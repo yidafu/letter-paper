@@ -1,6 +1,6 @@
 <template>
   <div class="post-list">
-    <post-summary v-for="(ID,index) in postIDs" :key="ID" :index="index" :post-id="ID" @click="handleClick" />
+    <post-summary v-for="(ID,index) in postIDs" :key="ID" :index="index" :post-id="ID" />
   </div>
 </template>
 
@@ -16,60 +16,19 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'currentPost',
-      'posts',
       'postIDs',
-      'postIdx',
     ]),
-  },
-  watch: {
-    '$route': 'routerChange'
   },
   async created() {
     await this.getPosts();
-    // this.posts = this.statePosts
-    // console.log('created');
   },
 
 
   methods: {
-    handleClick(e, id) {
-      this.$router.push(`/post/${id}`);
 
-      this.updatePost(id);
-
-    },
-    async updatePost(postID, partialPost = {}) {
-
-      let postIdx = this.postIdx(postID);
-
-      // get new copy without `__ob__`
-      let postCopy = { ...this.currentPost(postID), ...partialPost };
-
-      if (!partialPost.hasOwnProperty('status')) {
-        postCopy.status = !this.currentPost(postID).status;
-      }
-
-      let statusChangedPosts = this.posts.map(post => ({ ...post, status: false }));
-      statusChangedPosts[postIdx] = postCopy;
-      // console.log(postCopy)
-      // this.posts = statusChangedPosts;
-      this.updatePosts(statusChangedPosts);
-    },
     ...mapActions([
       'getPosts',
-      'getPostByID',
-      'updatePosts',
     ]),
-    async routerChange() {
-      // this.posts = this.statePosts
-
-      if (this.$route.path.indexOf('/post') !== -1) {
-        const postID = this.$route.params.id;
-        await this.getPostByID(postID);
-        this.updatePost(postID, { status: true });
-      }
-    },
 
   }
 };
