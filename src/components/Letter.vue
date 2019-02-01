@@ -34,8 +34,14 @@ export default {
     content() {
       const { data } = this;
       let content = '';
-      if(data.status) content = this.currentPost(data.id).content
+      if (data.status) content = this.currentPost(data.id).content;
       return data.status ? content : data.summary;
+    },
+    isPost() {
+      return this.$route.path.indexOf('/post') !== -1;
+    },
+    isMatch() {
+      return  this.isPost && this.$route.params.id == this.data.id
     },
     ...mapGetters([
       'currentPost',
@@ -73,23 +79,26 @@ export default {
       const lastRect = articleElm.getBoundingClientRect();
 
       // TODO More friendly user interaction when toggle a new post
-      // const duration = firstRect.height > lastRect.height ? 100 : 500;
-      // const baseTop = window.pageYOffset + firstRect.top;
-
-      /*const animateHandle = */articleElm.animate([
-        { height: firstRect.height + 'px' },
-        { height: lastRect.height + 'px' },
-      ], {
-        duration: 500,
-      });
-      // animateHandle.onfinish = function() {
-      //   console.log('animation finshed');
-      // };
+      const baseTop = Math.floor(firstRect.top);
+      // articleElm.scrollTop = 0
+      if( this.isMatch ) {
+        window.scrollBy( 0, baseTop)
+      }
+      if( firstRect.height > lastRect.height ) {
+        // const animateHandle = articleElm.animate([
+        //   { height: firstRect.height + 'px' },
+        //   { height: lastRect.height + 'px' },
+        // ], {
+        //   duration: 500,
+        // });
+        // animateHandle.onfinish = function() {
+        //   console.log('animation finshed');
+        //   window.scroll(0, baseTop)
+        // };
+      }
     },
 
     async updatePost(postID, partialPost = {}) {
-
-      let postIdx = this.postIdx(postID);
 
       // get new copy without `__ob__`
       let postCopy = { ...this.currentPost(postID), ...partialPost };
@@ -98,15 +107,15 @@ export default {
         postCopy.status = !this.currentPost(postID).status;
       }
 
-      this.updatePosts([ postCopy ]);
+      this.updatePosts([postCopy]);
     },
-     async routeChange() {
+    async routeChange() {
       if (this.$route.path === '/') { // Index page
         this.shrink = false;
       } else if (this.$route.path.indexOf('/post') !== -1) { // post page
         this.firstRect = this.$el.getBoundingClientRect();
         const postID = Number(this.$route.params.id);
-        if ( postID === this.data.id) { // id matched
+        if (postID === this.data.id) { // id matched
           await this.getPostByID(postID);
 
           this.updatePost(postID, { status: true });
@@ -155,7 +164,7 @@ padding 2.54cm 3.18cm -> 15px
 }
 
 .pull-back {
-  padding-top: $a4-padding-left - 10mm;
+  padding-top: $a4-padding-left - 20mm;
   height: 0;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <s-ripple>
-    <button class="squid-btn squid-btn-primary">
+    <button @click="$emit('click', event)" class="squid-btn squid-btn-primary">
       <slot />
     </button>
   </s-ripple>
@@ -51,7 +51,7 @@ export default {
 }
 
 .squid-btn:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .squid-btn:focus,
