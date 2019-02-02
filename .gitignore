@@ -62,3 +62,7 @@ typings/
 
 dist/
 test.*
+
+server/posts/
+server/db/
+mock/*.json
