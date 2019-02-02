@@ -1,16 +1,15 @@
 const router = require('express').Router();
 const Mock = require('mockjs');
-const postData = require('./posts.json');
 
 router.get('/', function(req, res, next) {
   res.json(
-    postData
+    require('./index.json')
   );
 });
 
 router.get('/post/:id', function(req, res, next) {
   res.json(
-    postData.posts[req.params.id]
+    require('./' + req.params.id + '.json')
   );
 });
 
