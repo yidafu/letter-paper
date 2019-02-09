@@ -1,59 +1,36 @@
 <template>
-  <Layout description="vue server side render" keywords="egg, vue, webpack, server side render">
-    post
-  </Layout>
+  <div class="home">
+    <navbar></navbar>
+    <router-link to="/">Jump to home</router-link>
+    <letter-list />
+  </div>
 </template>
-<style>
-  @import "index.css";
-</style>
-<script type="text/babel">
-  import { formatDate } from 'framework/utils/utils.js';
-  export default {
-    components: {
 
-    },
-    data(){
-      return {
-        isFinish: false,
-        isLoading : false,
-        pageIndex: 1,
-        pageSize: 10
-      }
-    },
-    computed: {
-      lists(){
-        return this.list;
-      }
-    },
-    methods: {
-      fetch(){
-        this.$http.get(`${location.origin}/pager?pageIndex=${this.pageIndex}&pageSize=${this.pageSize}`).then(res=> {
-          console.log('res', res);
-          if(res.data.list && res.data.list.length){
-            this.total = res.data.total;
-            this.list = this.list.concat(res.data.list);
-          }else{
-            this.isFinish = true;
-          }
-          this.isLoading = false;
-        });
-      },
-      loadPage(){
-        if (!this.isFinish && !this.isLoading) {
-          this.isLoading = true;
-          this.pageIndex++;
-          setTimeout(()=>{
-            this.fetch();
-          }, 1500);
-        }
-      }
-    },
-    mounted() {
-      formatDate(new Date());
-      window.addEventListener('scroll', ()=>{
-        this.loadPage();
-      }, false);
-    }
-  }
+<script>
+// @ is an alias to /src
+import Button from 'squid/Button';
+import Image from 'squid/Image';
+import LetterList from 'components/LetterList';
+import Navbar from 'components/Navbar';
+
+export default {
+  name: 'post',
+  components: {
+    's-button': Button,
+    LetterList,
+    Navbar,
+    graph: Image,
+  },
+};
 </script>
 
+<style lang="scss">
+  .home {
+    position: relative;
+    // padding-top: 10em;
+    min-width: 1000px;
+    background: url(../../assets/rain-slim.jpg) no-repeat fixed;
+    background-size: cover;
+    // min-width: 1000px;
+  }
+</style>

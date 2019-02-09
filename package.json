@@ -1,7 +1,23 @@
 {
-  "name": "egg-vue-webpack-mpa-boilerplate",
-  "version": "4.1.1",
-  "description": "基于 easywebpack-vue 和 egg-view-vue-ssr插件的 egg + vue 服务端渲染同构工程骨架项目",
+  "name": "letter-paper",
+  "version": "0.0.1",
+  "description": "personal letter-paper style blog site.",
+  "main": "src/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yidafu/letter-paper.git"
+  },
+  "keywords": [
+    "blog",
+    "react",
+    "static-site"
+  ],
+  "author": "yidafu",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yidafu/letter-paper/issues"
+  },
+  "homepage": "https://github.com/yidafu/letter-paper#readme",
   "scripts": {
     "debug": "egg-bin debug",
     "clean": "easy clean",
@@ -62,16 +78,16 @@
   "ci": {
     "version": "8, 9"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hubcarl/egg-vue-webpack-boilerplate.git"
-  },
-  "author": "hubcarl@126.com",
-  "license": "MIT",
-  "homepage": "https://github.com/hubcarl/egg-vue-webpack-boilerplate",
+
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint . --ext .js,.vue -f table --fix",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
