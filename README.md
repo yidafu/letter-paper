@@ -1,0 +1,1 @@
+egg + vue: multi page
