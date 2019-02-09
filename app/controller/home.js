@@ -14,8 +14,8 @@ module.exports = app => {
       await ctx.renderClient('home/index.js', Model.getPage(1, 10));
     }
     async post() {
-      const {ctx} = this;
-      await ctx.render('post/index.js', {msg: 'test message'})
+      const { ctx } = this;
+      await ctx.render('post/index.js', { msg: 'test message' });
     }
     async pager() {
       const { ctx } = this;

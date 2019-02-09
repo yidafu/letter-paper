@@ -51,7 +51,5 @@ export default {
 .slide-move {
   transition: transform .5s;
 }
-.post-list {
-  // position: relative;
-}
+
 </style>

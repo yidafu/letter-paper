@@ -20,7 +20,7 @@ const template = `<!DOCTYPE html>
 
 export default {
   name: 'Layout',
-  props: [ 'title', 'description', 'keywords' ],
+  props: ['title', 'description', 'keywords'],
   components: {
     MainLayout
   },
@@ -38,5 +38,6 @@ export default {
       return this.$root.baseClass;
     }
   },
+  /* eslint no-undef: off */
   template: EASY_ENV_IS_NODE ? template : content
 };

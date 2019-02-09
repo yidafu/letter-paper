@@ -9,6 +9,7 @@ export default function render(options) {
       options.router.push(context.state.url);
       const matchedComponents = options.router.getMatchedComponents();
       if (!matchedComponents) {
+        /* eslint prefer-promise-reject-errors: off */
         return Promise.reject({ code: '404' });
       }
       return Promise.all(
