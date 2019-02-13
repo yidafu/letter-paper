@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   egg: true,
   framework: 'vue',
@@ -11,17 +10,18 @@ module.exports = {
     }
   },
   alias: {
-    server: 'app/web/framework/vue/entry/server.js',
-    client: 'app/web/framework/vue/entry/client.js',
     asset: 'app/web/asset',
+    client: 'app/web/framework/vue/entry/client.js',
     component: 'app/web/component',
     framework: 'app/web/framework',
-    vue: 'vue/dist/vue.esm.js'
+    vue: 'vue/dist/vue.esm.js',
+    server: 'app/web/framework/vue/entry/server.js',
+    squid: 'app/squid'
   },
   dll: ['vue', 'axios'],
   loaders: {},
   plugins: {},
   done() {
-
+    // empty function
   }
 };

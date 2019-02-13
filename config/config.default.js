@@ -34,6 +34,10 @@ module.exports = app => {
   exports.middleware = [
     'access'
   ];
-
+  exports.repo = {
+    owner: 'yidafu',
+    repo: 'blog-post',
+    branch: 'master',
+  };
   return exports;
 };

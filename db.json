@@ -1,0 +1,488 @@
+[
+  {
+    "name": "祭奠服务器再一次炸掉.md",
+    "path": "A-cup-of-code/祭奠服务器再一次炸掉.md",
+    "sha": "3f535b5237f293d10bc86a67140128ea74ebc7ed",
+    "size": 1356,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/A-cup-of-code/%E7%A5%AD%E5%A5%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%8D%E4%B8%80%E6%AC%A1%E7%82%B8%E6%8E%89.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/A-cup-of-code/%E7%A5%AD%E5%A5%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%8D%E4%B8%80%E6%AC%A1%E7%82%B8%E6%8E%89.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/3f535b5237f293d10bc86a67140128ea74ebc7ed",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/A-cup-of-code/%E7%A5%AD%E5%A5%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%8D%E4%B8%80%E6%AC%A1%E7%82%B8%E6%8E%89.md",
+    "type": "file",
+    "content": "---\ntitle: 祭奠服务器再一次炸掉\ndate: \"2017-07-31\"\ntags:\n - Error\n---\n\n \n\n# 痛苦流涕\n\n不幸呀！不幸呀！不幸呀！\n\n又手贱把服务器弄炸了。我不该为了调试 XunSearch 去改变服务器配置的。\n\n<!--more-->\n\n# 这是个令人悲伤的故事\n\n因为误删 iptables ，重启 lnmp 失败，整个服务器就炸了。为了拯救之前博客的数据尝试了多种方法：尝试修复报错，WinSCP 直接复制，SCP 命令下载。统统不行！好像就已经无法从外网访问服务器了，从腾讯云可以内网访问。总之，问题超过了我的能力限度，无奈重转系统。备份了一个镜像，不知何时可以解决这个问题。\n\n损失最惨痛的就是：之前写的文章都没了，本地也没找到备份文件，就是说之前写的文章彻底丢了。\n\n# 教训\n\n+   千万不是随意在服务上动手脚<br>宁愿问题被放置，也不要去轻率的动服务器软件和配置文件。\n+   一定要做好数据备份工作。重转系统事小，数据丢失事大。\n+   一定现在本地写好在放到服务器上，在本地集中放置博客文章。\n\n# 愿世界和平\n\n**愿世界和平，永远不再有再炸的服务器。**<br/>\n**愿世界和平，永远不再有再炸的服务器。**<br/>\n**愿世界和平，永远不再有再炸的服务器。**\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/A-cup-of-code/%E7%A5%AD%E5%A5%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%8D%E4%B8%80%E6%AC%A1%E7%82%B8%E6%8E%89.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/3f535b5237f293d10bc86a67140128ea74ebc7ed",
+      "html": "https://github.com/yidafu/blog-post/blob/master/A-cup-of-code/%E7%A5%AD%E5%A5%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%8D%E4%B8%80%E6%AC%A1%E7%82%B8%E6%8E%89.md"
+    }
+  },
+  {
+    "name": "C模拟实现类.md",
+    "path": "CAndC++/C模拟实现类.md",
+    "sha": "bc587c06ba6ceb50087503d7c1be3bbda75a4991",
+    "size": 2175,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/C%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0%E7%B1%BB.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/C%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0%E7%B1%BB.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/bc587c06ba6ceb50087503d7c1be3bbda75a4991",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/CAndC%2B%2B/C%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0%E7%B1%BB.md",
+    "type": "file",
+    "content": "---\ntitle: C模拟实现类\ndate: '2017-11-18'\ntags:\n  - cpp\n  - algorihm\n---\n# 由头\n\n之前在《深入理解PHP内核》一书中看到了用函数作为结构体的属性，想到用　C　语言来模拟实现面对对象。\n\n## 具体实现\n\n```c\n#include <stdio.h>\n\ntypedef struct Class {\n    int _param;\n    void ( * _construct )();\n    void ( * function )();\n    void ( * _destory )();\n} Class, *Instance;\n\n\nvoid init( Instance this, int param ) {\n    this->_param = param;\n    printf(\"this is construct function\\n\");\n}\n\nvoid doSomething(Instance this) {\n    printf(\"this is a function called %d\\n\", this->_param);\n}\n\nvoid destory(Instance this) {\n    this->_param = 0;\n    printf(\"this is detory function\\n\");\n}\n\nint main() {\n    struct Class Object = { 233, init, doSomething, destory };\n\n    Object._construct( &Object, 666 );\n    Object.function(&Object);\n    Object._destory(&Object);\n    return 0;\n}\n```\n## 解释\n\n### ＂方法＂\n主要的一个知识点就是 C 语言中，函数是可以已指针的形式被传递（**函数指针**）．\n\n比如：\n\n```c\nint* sort(int arr[], int *compare( int pre, int next ) ) {\n    for( int index = 0; index < len(arr) - 1; ++ index ) {\n        if( compare( arr[index], arr[index+1] ) > 0 ) {\n            swap( &arr[index], &arr[index+1] );\n        }\n    }\n}\n```\n\n这里就是把一个比较函数`compare()`传入`sort()`函数里面．实现了自定义排序过程．这样的做法，动态语言里面比较常见．\n\n＂模拟类＂也是同样的原理．我们把结构体的属性设为函数指针，结构体通过访问函数指针属性来调用函数，由此来模拟＂方法＂．\n\n\n### \"this\"\n\n实际上，纯　C 实现＂类＂内部实现`this`是很不现实的．早期的　C++ 没有底层实现 this 的指向，而是将　C++ 代码编译成　C ，在这个过程中使用了一点小把戏：在编译成　C 代码的过程中，给所有的类的＂方法＂的参数列表添加一个参数，而这个参数就是指向实例的一个指针．\n\n## 总结\n\nC 语言，最为强大之处莫过于它的指针了．教材所学，它的一点精髓都没有，同志任需努力呀！\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/C%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0%E7%B1%BB.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/bc587c06ba6ceb50087503d7c1be3bbda75a4991",
+      "html": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/C%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0%E7%B1%BB.md"
+    }
+  },
+  {
+    "name": "二叉树的中序非递归遍历.md",
+    "path": "CAndC++/二叉树的中序非递归遍历.md",
+    "sha": "c1099acf66a41194afaa128eaf49d49cbb9a68cc",
+    "size": 2814,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/c1099acf66a41194afaa128eaf49d49cbb9a68cc",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/CAndC%2B%2B/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.md",
+    "type": "file",
+    "content": "---\ntitle: 二叉树的中序非递归遍历\ndate: '2017-11-17'\ntags:\n  - cpp\n  - algorihm\n---\n\n# 前话\n\n写孩子-兄弟法表示森林，遇到了用非递归实现中序遍历。先没有参考教材上给的伪 C 算法，而是自己独立实现了另一种算法，相比教材的算法，代码量多了一些，操作略微复杂了一点。不管怎么说还是自己独立做出来的。\n\n实质上，森林的后根遍历就是二叉树的中序遍历。\n\n# 来，上代码\n\n```c\nvoid Tree::_postorderStackTraverse(Node* &TNode, void (* visit)( ElemType e) ) {\n    stack<Node *> Traverse;\n    Traverse.push( TNode );\n    while ( true ) {\n        // 入栈操作\n        Node *topOne = Traverse.top();\n        Traverse.pop();\n        if (!topOne) {\n            if ( Traverse.empty() ) {\n                break;\n            }\n            topOne = Traverse.top();\n            Traverse.pop();\n            visit(topOne->data);\n            continue;\n        }\n        Traverse.push(topOne->nextSibling);\n        Traverse.push(topOne);\n        Traverse.push(topOne->childNode);\n    }\n}\n```\n\n# 解释\n\n我的基本思路就是利用栈，森林后根遍历的特点：**孩子应该被先访问，根再被访问，兄弟最后被访问**。\n\n![](../imgs/binary-tree-5.png)\n\n只要将树的节点按照上面的思路放入栈即可。初始时，栈中有一个根元素（先假设有孩子节点和兄弟节点），将根节点取出，依次放入兄弟节点（在栈底最后被访问），根节点，孩子节点（在栈顶最先被访问）。放好以后进入下一个循环，原来的孩子节点成了根节点，重复之前的步骤。\n![](../imgs/binary-tree-1.png)\n\n![](../imgs/binary-tree-2.png)\n\n![](../imgs/binary-tree-4.png)\n\n\n这样已经做到了把二叉树放入栈中，还有一种很重要的问题就是：根节点没有兄弟和孩子节点的情况，这就时候应该退栈了。\n\n回到之前的放入的步骤，假设根节点的兄弟节点，孩子节点都是`NULL`，我们依旧全部放入栈中，但是，这里就需要在取出栈顶元素的同时，判断取出的元素是否为空，非空就说明当前分支没有走到尽头，就放入其兄弟节点，自己本身，其孩子节点，为空就说明走到了尽头，没有元素可以放入栈中，再次执行出栈操作取出栈中的下一个节点（当前的`NULL`节点的父亲节点），并且访问取出的节点，再依次放入取出的节点的兄弟节点，本身，孩子节点，结束一次循环。\n\n![](../imgs/binary-tree-3.png)\n\n如此，便可以做到二叉树的中序遍历。需要注意的一点是：遇到`NULL`节点，再取下栈中一个节点时，要判断一下是否栈为空，为空就结束循环。\n\n# 结语\n\n拖了好久，终于补上了这个坑。\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/c1099acf66a41194afaa128eaf49d49cbb9a68cc",
+      "html": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.md"
+    }
+  },
+  {
+    "name": "双重指针和引用指针.md",
+    "path": "CAndC++/双重指针和引用指针.md",
+    "sha": "2dbbca0dab45a387f641dda47de42f06202c69e5",
+    "size": 800,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E6%8C%87%E9%92%88.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E6%8C%87%E9%92%88.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/2dbbca0dab45a387f641dda47de42f06202c69e5",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/CAndC%2B%2B/%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E6%8C%87%E9%92%88.md",
+    "type": "file",
+    "content": "---\ntitle:  C++双重指针和引用指针\ndate: '2017-11-17'\ntags:\n  - cpp\n  - language-feature\n---\n C++双重指针和引用指针\n\n# 引言\n\n最近写数据结构遇到了一个有趣问题的问题。\n\n```c\nclass Tree{\nprivate:\n    Node* root;\npublic:\n    Tree();\n    void create( Node &TNode );\n}\n\nTree::Tree() {\n    this->root = NULL;\n}\n\nvoid Tree::create( Node &TNode ) {\n    // 略\n    this->create( TNode->childNode );\n    this->create( TNode->nextSiling );\n}\n\nint main() {\n    Tree test;\n    // 为了简便起见\n    test->create( this->root );\n}\n\n```\n\n这样写在函数里建树成功了，但是，一返回main()函数所得的树就消失了。在 Stackoverflow 上找到了一个回答里面的文章很好的解释了这个问题。\n\n# Google 玩家作弊中\n\n这里\nTo Be Continue\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E6%8C%87%E9%92%88.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/2dbbca0dab45a387f641dda47de42f06202c69e5",
+      "html": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E6%8C%87%E9%92%88.md"
+    }
+  },
+  {
+    "name": "如何理解递归.md",
+    "path": "CAndC++/如何理解递归.md",
+    "sha": "ae0c3a8962d63f175e51606c39294983ce7a013c",
+    "size": 4876,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/ae0c3a8962d63f175e51606c39294983ce7a013c",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/CAndC%2B%2B/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92.md",
+    "type": "file",
+    "content": "---\ntitle: 如何理解递归\ndate: '2017-10-21'\ntags: \n  - c\n  - algorihm\n  - recursion\n---\n \n\n# 前话\n初学 Clang ，就接触过递归（那个要死人的汉诺塔）。但是一直不理解，递归是如果实现的。听数据结构老师的一堂课，感觉有所收获，故记录下来。\n\n<!--more-->\n\n# 正文\n\n一般来说在可以用递归的地方,同样是可以用 for 循环实现的。相比而言使用递归会有程序“爆炸”的可能。尽管如此递归依旧有着用武之地，比如在二叉树的遍历上。用来递归遍历二叉树的函数是如此简洁又是那么强大，完全的体现了递归的强大之处。\n\n## 一个只能是例子的例子\n\n最简单的使用递归的例子就是：阶乘的计算。**请一定不要在实际中使用递归去计算阶乘。** 这是个很不好的实践，效率比不上 for 循环。但为了简单起见，我们先从这个例子开始。\n\n### **小二上代码：**\n```c\nint factrial( int multiplier ) {\n    if( multiplier == 1 ) {\n        return 1;\n    } else {\n        return multiplier * factrial( multiplier - 1 );\n    }\n}\n```\n发生了什么？？就这样结束了？？\n\n```c\nreturn multiplier * factrial( multiplier - 1 );\n```\n\n是不是这句特别难理解？别急，我们慢慢来。\n\n来看看同样简洁的 for 循环实现的：\n\n```c\nint factrial ( int multiplier ) {\n    int result;\n\n    for ( ; multiplier > 0; multiplier -- ) {\n        result *= multiplier;\n    }\n    return result;\n}\n```\n\n两个函数都实现了同样的阶乘计算。相比而言，第一个似乎不好理解。\n\n### 发生了什么\n\nfor 循环比较简单，就不细说。第一个递归是如何实现阶乘的计算呢？\n\n再解释之前，都有个函数调用的概念。何为函数调用？就是在一个函数里面调用另一个函数。\n\n比如：\n\n```c\nvoid functionA () {\n    printf(\"I'm functionA!\");\n}\n\nvoid functionB () {\n    functionA();\n    printf(\"I called the functionA!\");\n}\n\nint main () {\n    functionB();\n\n    return 0;\n}\n```\n\n这里`main`调用了`functionB`，`functionB`调用了`functionA`，而递归则是一种特殊的调用，即：**自己调用自己**。上面的就是`factrial`调用`factrial`，再是`factrial`调用`factrial`，这样重复掉用。如果没有结束条件，很显然地自己调用自己的过程会无限地进行下去，即死循环了。\n\n有了这样的基础以后，再来理解一下之前的阶乘递归算法。\n\n先复习一下（假定传入的实参是3）：\n\n```c\n                // multiplier == 3\nint factrial( int multiplier ) {\n    if( multiplier == 1 ) {\n        return 1;\n    } else {\n                            // 下一步，把这个函数展开\n        return multiplier * factrial( multiplier - 1 );\n    }\n}\n```\n第一次递归：\n\n```c\n                // multiplier == 3\nint factrial( int multiplier ) {\n    if( multiplier == 1 ) {\n        return 1;\n    } else {\n                            // mutiplier == 3，传入的是 mutiplier - 1 == 2\n        return multiplier * factrial( multiplier - 1 ) {\n                                // 此时，传入的 mutiplier == 2 != 1\n                                if( multiplier == 1 ) {\n                                    return 1;\n                                } else {\n                                    // 走到这里了，下一步继续展开 factrial()\n                                    return multiplier * factrial( multiplier - 1 );\n                                }\n                            };\n    }\n}\n```\n\n实际上，如果我们把每次递归的函数展开，递归就不难理解了。上面的代码看起来就是就像是顺序执行了。\n\n为了便于展示忽略第一层递归。\n```c\n// mutiplier == 3，传入的是 mutiplier - 1 == 2\nreturn multiplier * factrial( multiplier - 1 ) {\n    // 此时，传入的 mutiplier == 2 != 1\n    if( multiplier == 1 ) {\n        return 1;\n    } else {\n        // 走到这里了，下一步继续展开 factrial()\n        // mutiplier == 2，传入的是 mutiplier - 1 == 1\n        return multiplier * factrial( multiplier - 1 ) {\n                    // 此时，传入的 mutiplier == 2 != 1\n                    if( multiplier == 1 ) {\n                        // 走到这里了，这里递归到底了，回去执行 multiplier * { return 1 }\n                        return 1;\n                    } else {\n                        // !!! 最后一次没有走到这里\n                        return multiplier * factrial( multiplier - 1 );\n                    }\n                };\n    }\n};\n```\n\n从这里就可以及清晰地理解递归了。\n\n整个过程可以简化为：\n\n```c\nfactrial ( 3 ) {\n    return 3 * factrial ( 2 ) {\n         return 2 * factrial( 1 ) {\n            return 1;\n        }\n    }\n}\n```\n\n# 后话\n\n这篇介绍暂到这里，后面有空再修改修改。\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/CAndC%2B%2B/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/ae0c3a8962d63f175e51606c39294983ce7a013c",
+      "html": "https://github.com/yidafu/blog-post/blob/master/CAndC%2B%2B/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92.md"
+    }
+  },
+  {
+    "name": "java链接MySQL.md",
+    "path": "Java/java链接MySQL.md",
+    "sha": "7d75318553fe039e967d0c50a4105a31d7a40e12",
+    "size": 1760,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/Java/java%E9%93%BE%E6%8E%A5MySQL.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/Java/java%E9%93%BE%E6%8E%A5MySQL.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/7d75318553fe039e967d0c50a4105a31d7a40e12",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/Java/java%E9%93%BE%E6%8E%A5MySQL.md",
+    "type": "file",
+    "content": "---\ntitle: Java 连接 MySQL\ndate: '2017-10-16'\ntags: \n  - Java\n  - Jsp\n  - MySQL\n---\n \n\n# 前言\n\n一直用PHP 连接 MySQL，由于 PHP 对 MySQL 连接做了很好的封装基本做到了“开箱即用”。而 Java 相比而言基本上属于“手动挡”。Java 语法“又臭又长”为人所诟病。这里我也尝试了用 Java 来连接 MySQL，好久没写 Java 键盘有些颤抖。\n\n<!--more-->\n# 环境\n\n+   Window10\n+   IDEA\n+   Tomcat9.0\n+   JDK 1.8\n+   MySQL 8.0.3 rc\n\n# 代码\n\n```java\n<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>\n\n<%@ page import=\"com.mysql.jdbc.Driver\"%>\n<%@ page import=\"java.sql.*\" %>\n\n<html>\n<head>\n    <title>MySQL connect test</title>\n</head>\n<body>\n<%\n    String driverName = \"com.mysql.jdbc.Driver\";\n    String userName = \"root\";\n    String passWorld = \"1203my\";\n    String dbName = \"daliy-test\";\n    String tableName = \"test\";\n\n    String url = \"jdbc:mysql://localhost/\"+dbName+\"?user=\"+userName+\"&password=\"+passWorld;\n    try {\n        Class.forName(\"com.mysql.jdbc.Driver\").newInstance();\n        Connection connection = DriverManager.getConnection(url);\n        Statement statement = connection.createStatement();\n        String sql = \"SELECT * FROM \"+tableName;\n        ResultSet result = statement.executeQuery(sql);\n        ResultSetMetaData rmate = result.getMetaData();\n        int numCount = rmate.getColumnCount();\n\n        while ( result.next() ) {\n            out.print(result.getInt(1));\n            out.print(result.getString(2));\n            out.print(result.getInt(3));\n            out.print(\"<br>\");\n        }\n\n        result.close();\n        statement.close();\n        connection.close();\n    } catch (Exception e) {\n        e.getMessage();\n    }\n%>\n</body>\n</html>\n```\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/Java/java%E9%93%BE%E6%8E%A5MySQL.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/7d75318553fe039e967d0c50a4105a31d7a40e12",
+      "html": "https://github.com/yidafu/blog-post/blob/master/Java/java%E9%93%BE%E6%8E%A5MySQL.md"
+    }
+  },
+  {
+    "name": "spring-boot-get-start.md",
+    "path": "Java/spring-boot-get-start.md",
+    "sha": "c7fea48f21bed52213575e74a99f1f95072da516",
+    "size": 2145,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/Java/spring-boot-get-start.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/Java/spring-boot-get-start.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/c7fea48f21bed52213575e74a99f1f95072da516",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/Java/spring-boot-get-start.md",
+    "type": "file",
+    "content": "---\ntitle: Spring boot 起步\ndate: '2018-12-27'\ntags:\n  - Java\n  - spring-boot\n  - Gradle\ncategory: backend\n---\n\n# 前言\n\n\n## 安装 Gradle\n\n从[这里](https://gradle.org/next-steps/?version=5.0&format=all)下载最新版的 Gradle，解压，把`path/to/Gradle/bin`加入环境变量。\n\n测试是否安装成功。\n\n```shell\ngradle -v\n ```\n\n## 使用 wrapper\n\nGradle wrapper 官方推荐使用[^2]\n```shell\n gradle wrapper\n ```\n\n\n [^1]: https://spring.io/guides/gs/spring-boot/\n [^2]: https://docs.gradle.org/5.0/userguide/gradle_wrapper.html\n\n\n## 简单的 web 应用\n\n`src/main/java/hello/HelloController.java`\n\n```java\npackage hello;\n\nimport org.springframework.web.bind.annotation.RestController;\nimport org.springframework.web.bind.annotation.RequestMapping;\n\n@RestController\npublic class HelloController {\n\n    @RequestMapping(\"/\")\n    public String index() {\n        return \"Greetings from Spring Boot!\";\n    }\n\n}\n```\n\n`src/main/java/hello/Application.java`\n\n```java\npackage hello;\n\nimport java.util.Arrays;\n\nimport org.springframework.boot.CommandLineRunner;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.context.annotation.Bean;\n\n@SpringBootApplication\npublic class Application {\n\n    public static void main(String[] args) {\n        SpringApplication.run(Application.class, args);\n    }\n\n    @Bean\n    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {\n        return args -> {\n\n            System.out.println(\"Let's inspect the beans provided by Spring Boot:\");\n\n            String[] beanNames = ctx.getBeanDefinitionNames();\n            Arrays.sort(beanNames);\n            for (String beanName : beanNames) {\n                System.out.println(beanName);\n            }\n\n        };\n    }\n\n}\n```\n\n运行\n\n```shell\n./gradlew build && java -jar build/libs/gs-spring-boot-0.1.0.jar\n```\n\n访问`localhost:8080`就会收到`Greetings from Spring Boot!`消息。\n\n## 总结\n\n相比`springMVC`,`spring boot`上手难度更小一些.对新手也更加友好一点.",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/Java/spring-boot-get-start.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/c7fea48f21bed52213575e74a99f1f95072da516",
+      "html": "https://github.com/yidafu/blog-post/blob/master/Java/spring-boot-get-start.md"
+    }
+  },
+  {
+    "name": "ESLint.md",
+    "path": "JavaScript/ESLint.md",
+    "sha": "ac8777f4e387da49081919dd20b18be548f99e90",
+    "size": 1400,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/ESLint.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/ESLint.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/ac8777f4e387da49081919dd20b18be548f99e90",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/ESLint.md",
+    "type": "file",
+    "content": "---\ntitle: ESLint 配置\ndate: '2018-07-31'\ntags: \n  - Wabpack\n  - ESLint\n---\n\n```js\nmodule.exports = {\n    \"env\": {\n        \"browser\": true,\n        \"es6\": true,\n        \"node\": true\n    },\n    \"parser\": \"babel-eslint\",\n    \"extends\": [\n        \"eslint:recommended\",\n        \"plugin:react/recommended\"\n    ],\n    \"parserOptions\": {\n        \"ecmaFeatures\": {\n            \"jsx\": true\n        },\n        \"ecmaVersion\": 2018,\n        \"sourceType\": \"module\",\n        \"no-empty-function\": {\n            \"allow\": [\"methods\", \"constructors\"]\n        },\n    },\n    \"plugins\": [\n        \"react\",\n        \"babel\"\n    ],\n    \"rules\": {\n        \"indent\": [\n            \"error\",\n            2\n        ],\n        \"linebreak-style\": [\n            \"error\",\n            \"unix\"\n        ],\n        \"quotes\": [\n            \"error\",\n            \"single\"\n        ],\n        \"semi\": [\n            \"error\",\n            \"never\"\n        ],\n        \"no-console\": \"off\",\n        \"react/prop-types\": 1\n    }\n};\n```\n\n+ babel-eslint\n+ eslint \n+ eslint-plugin-babel \n+ eslint-plugin-react\n\n```shell\n\"lint\": \"./node_modules/.bin/eslint --ext .js,.jsx frontend/\",\n\"lint:table\": \"npm run lint -- -f table\",\n\"lint:code\": \"npm run lint -- -f codeframe\",\n\"lint:fix\": \"npm run lint -- --fix\"\n```\n\n+ <https://eslint.org/>\n+ <http://eslint.cn/>\n+ <http://www.alloyteam.com/2017/08/13065/>\n+ <https://github.com/yannickcr/eslint-plugin-react>",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/ESLint.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/ac8777f4e387da49081919dd20b18be548f99e90",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/ESLint.md"
+    }
+  },
+  {
+    "name": "JS查询多地相邻距离.md",
+    "path": "JavaScript/JS查询多地相邻距离.md",
+    "sha": "4405b192885e13689b154c9dc5f38fd8281485f7",
+    "size": 266,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/JS%E6%9F%A5%E8%AF%A2%E5%A4%9A%E5%9C%B0%E7%9B%B8%E9%82%BB%E8%B7%9D%E7%A6%BB.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/JS%E6%9F%A5%E8%AF%A2%E5%A4%9A%E5%9C%B0%E7%9B%B8%E9%82%BB%E8%B7%9D%E7%A6%BB.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/4405b192885e13689b154c9dc5f38fd8281485f7",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/JS%E6%9F%A5%E8%AF%A2%E5%A4%9A%E5%9C%B0%E7%9B%B8%E9%82%BB%E8%B7%9D%E7%A6%BB.md",
+    "type": "file",
+    "content": "---\ntitle: JS查询多地相邻距离\ndate: '2018-06-14'\ntags: \n  - JavaScript\n  - axios\n  - API\n---\n# JS 查询多地相临距离\n\n做数模遇到一个问题，需要 40 个城市之间的距离。由于城市太多手工获取过于繁琐，网上肯定，。\n##\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/JS%E6%9F%A5%E8%AF%A2%E5%A4%9A%E5%9C%B0%E7%9B%B8%E9%82%BB%E8%B7%9D%E7%A6%BB.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/4405b192885e13689b154c9dc5f38fd8281485f7",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/JS%E6%9F%A5%E8%AF%A2%E5%A4%9A%E5%9C%B0%E7%9B%B8%E9%82%BB%E8%B7%9D%E7%A6%BB.md"
+    }
+  },
+  {
+    "name": "nodeJS 发送带参的 POST 请求.md",
+    "path": "JavaScript/nodeJS 发送带参的 POST 请求.md",
+    "sha": "4c0f95bd546b81d08297cfab4a8db6d52255730b",
+    "size": 3339,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/nodeJS%20%E5%8F%91%E9%80%81%E5%B8%A6%E5%8F%82%E7%9A%84%20POST%20%E8%AF%B7%E6%B1%82.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/nodeJS%20%E5%8F%91%E9%80%81%E5%B8%A6%E5%8F%82%E7%9A%84%20POST%20%E8%AF%B7%E6%B1%82.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/4c0f95bd546b81d08297cfab4a8db6d52255730b",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/nodeJS%20%E5%8F%91%E9%80%81%E5%B8%A6%E5%8F%82%E7%9A%84%20POST%20%E8%AF%B7%E6%B1%82.md",
+    "type": "file",
+    "content": "---\ntitle: nodeJS 发送带参的 POST 请求\ndate: '2017-08-01'\ntags: \n  - JavaScript\n  - NodeJS\n---\n# 开头总要有几句话\n\nnodeJs 非常容易的可以进行路由分配，发送相应的 HTML 代码。但，实际运用中涉及到了 nodeJS 的另一个主要用途就是做一个中间层。这就要求到了用 nodeJS 做 http 请求。也就是说：前端发送请求到 nodeJS 指定的 URL 地址，nodeJS 在处理这个 URL 时向后端发送一个数据请求，最后把从后端得到的数据做一层渲染或处理。所以，如何在 nodeJS 里发起一个 http 请求呢？\n\n<!--more-->\n\n# 使用到的方法\n\n`http.request()`在 nodeJS 里主要用于发起 http 请求的方法。\n\n使用时需要传入一个`options`对象和一个回调函数，返回一个对象 `http.clienRequest`对象。\n\n这个返回的对象可以通过进一步事件监听来处理事务逻辑。\n\n## 被坑的地方\n\n在网上找了很多的代码，都是在传入的`http.request()`的回调函数的里监听`res`对象。我遇到过一个迷之 BUG。昨天，我在这个回调函数用外层的`res.send()`方法来发送请求，它不行！刚刚试了一下好像又可以了！！它可以了！！！由于年代久远，没有前面的代码对比，这当一个未解之谜吧。\n\n我在 API 文档里看了半天找到另一种解决方式。把`http.request()`方茴的对象定义为`send`(避免变量名重名)。监听`send`对象的`reponse`和`end`事件。\n\n# 小二！上代码\n\n**外层函数，下面的都是放在这个函数里的**\n\n```javascript\nvar express = require('express');\nvar router = express.Router();\nvar http = require('http');\nvar querystring = require('querystring');\n\nrouter.get('/', function(req, res, next) {\n    // 下面代码放这里\n}\n\nmodule.exports = router;\n```\n**方案一：**\n\n```javascript\nvar postData = querystring.stringify({\n        jsonList: '这是测试数据6666'\n});\n\n\nvar  options = {\n    hostname: '127.0.0.1',\n    port: 3000,\n    path: '/formSql/insertData',\n    method: 'POST',\n    headers: {\n        'Content-Type':'application/x-www-form-urlencoded',\n        'Content-Length': Buffer.byteLength(postData)\n    }\n};\nvar getData = '';\nvar send = http.request(options, function (innerres){\n    innerres.setEncoding('utf8');\n    var data = '';\n    innerres.on('data', function(chunk){\n        data += chunk;\n    });\n    innerres.on('end', function (){\n        res.send(chunk);\n        console.log('响应结束！');\n    });\n});\n\nsend.write(postData + '\\n');\nsend.end();\n\n```\n\n**方案二：**\n```javascript\n\nvar postData = querystring.stringify({\n        jsonList: '这是测试数据8888'\n});\n\nvar  options = {\n    hostname: '127.0.0.1',\n    port: 3000,\n    path: '/formSql/insertData',\n    method: 'POST',\n    headers: {\n        'Content-Type':'application/x-www-form-urlencoded',\n        'Content-Length': Buffer.byteLength(postData)\n    }\n};\nvar getData = '';\nvar send = http.request(options);\n\nsend.write(postData + '\\n');\nsend.on('response',function(onres) {\n    console.log('on response');\n    var data = '';\n    onres.on('data',function(chunk) {\n        data  += chunk;\n    });\n    onres.on('end',function() {\n        res.send(data);\n    })\n});\nsend.on('error', function (e) {\n    console.error('请求遇到问题: ' + e.message);\n});\nsend.end();\n```\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/nodeJS%20%E5%8F%91%E9%80%81%E5%B8%A6%E5%8F%82%E7%9A%84%20POST%20%E8%AF%B7%E6%B1%82.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/4c0f95bd546b81d08297cfab4a8db6d52255730b",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/nodeJS%20%E5%8F%91%E9%80%81%E5%B8%A6%E5%8F%82%E7%9A%84%20POST%20%E8%AF%B7%E6%B1%82.md"
+    }
+  },
+  {
+    "name": "webpack配置Reack环境.md",
+    "path": "JavaScript/webpack配置Reack环境.md",
+    "sha": "4eda4cdf687e8f7805a4a6206693a068cc2474f0",
+    "size": 3915,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/webpack%E9%85%8D%E7%BD%AEReack%E7%8E%AF%E5%A2%83.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/webpack%E9%85%8D%E7%BD%AEReack%E7%8E%AF%E5%A2%83.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/4eda4cdf687e8f7805a4a6206693a068cc2474f0",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/webpack%E9%85%8D%E7%BD%AEReack%E7%8E%AF%E5%A2%83.md",
+    "type": "file",
+    "content": "---\ntitle: webpack配置Reack环境\ndate: '2018-06-03'\ntags: \n  - wabpack\n  - react\n  - babel\n---\n\n\n**感想：不想当门外汗，就直接看一手资料，少去看别人教程。**\n\n网上的好多教程都有些过时了，要么是“年代久远”（现在都 2018 年了，而过期教程都是 15,16），要么就是时效过了（webpack 4 都发布好久了结果升级指南普遍是刚发布时的资讯状态）。而且不同教程的配置通常存在不同之处，有时就难以理解和分辨。还是官网的信息发布及时准确，比起去折腾“多样化”的配置方案，遵照官方的建议实在省力多了。我不建议你直接使用本仓库配置，因为这只是我的个人 webpack 模板，生搬硬套不一定适合你。\n\n之前依葫芦画瓢搞过 Webpack 的 React 配置。再配置就忘得差不多了。于是建了这个仓库，做一个 Webpack + React 的示例，以做备忘。\n\n# 需要的包\n\n+ babel-core\n    <br /> babel 核心库\n+ babel-loader\n+ babel-preset-env\n    <br /> 读取`.babelrc`中的配置信息，使得 babel 根据你的配置进行 compile\n    <br /> @ref <https://github.com/babel/babel/tree/master/packages/babel-preset-env>\n    <br /> @ref <https://babeljs.io/docs/plugins/preset-env>\n+ babel-preset-react\n    <br /> compile JSX 语法\n    <br /> @ref <https://babeljs.io/>\n+ css-loader\n+ extract-text-webpack-plugin\n    <br /> 从 bundle 文件中分离出单独的文件\n    <br /> @ref <https://webpack.js.org/plugins/extract-text-webpack-plugin/#src/components/Sidebar/Sidebar.jsx>\n+ file-loader\n    <br /> 令 webpack 返回指定对象的公开 URL\n    <br /> @ref <https://webpack.js.org/loaders/file-loader/>\n+ html-loader\n    <br /> @ref <https://webpack.js.org/loaders/html-loader/>\n+ html-webpack-plugin\n    <br /> 新建和你生成的 *.bundle.js 搭配的 HTML 文件。\n+ mini-css-extract-plugin\n+ style-loader\n    <br /> @ref <https://webpack.js.org/loaders/style-loader/>\n+ webpack\n+ webpack-cli\n+ webpack-dev-server\n+ webpack-merge\n\n\n# .babelrc\n\n一开始我也一脸蒙蔽(bi),`.babelrc`文件是干啥的？有的教程只是告诉你这样写就对了，不知其所以然。但是 Babel 的[官网](https://babeljs.io/docs/usage/babelrc/)上这个问题实际上将得很清楚。\n\n我的理解是`.babelrc`实际上就是和一个配置文件，性质和作用和`webpack.config.js`差不多。不过文件是被 Babel 读取，解释。而且初学者只会接触到这样的配置：\n\n```json\n{\n  \"presets\": [\"env\", \"react\"]\n}\n```\n\n这段配置非常简短，也就导致更不易理解。\n\n一步一步解释。\n\n<!--我猜想 -->Babel 在读取这个文件后会调用`parsing JSON`函数，将其转化为一个 JS 对象。`{ ... }`这对大括号以及其里面格式就不难理解。这个文件本质上应该是一个 JSON 文件。你可以删掉一个花括号，看一下报错。\n\n那里面的`\"presets\"`又是什么意思？\n\n这个相当于声明你要使用的 *preset* ，比如上面的 `env`，`react` 就分别指之前安装的 `babel-preset-env`， `babel-preset-react`。\n\nemmm， **preset**又是什么东东？\n\n这是在官网找到的解释。\n\n>Babel preset that automatically determines the Babel plugins you need based on your supported environments.\n\n意思差不多就是：预先选择在你支持的运行环境上所需要的 Babel 编译插件。\n\n\n比如：\n\n```json\n{\n    \"presets\": [\n        [ \"env\", {\n                \"targets\": {\n                \"chrome\": 52\n            }\n        } ]\n    ]\n}\n```\n\n这表示 Babel 最终编译出来的文件要支持在 Chrome 52 上运行。\n\n而我们只有`\"env\"`就是使用默认设置，**把 ES2015+ 的语法 complie 成 ES2015 以前的**。\n\n`'react'`就是指让 Babel complie JSX 的语法。去掉这个配置的话凡是有 JSX 语法的地方都会报错。\n\n<!-- \n# Webpack config\n\n> > > To Be Continue -->\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/webpack%E9%85%8D%E7%BD%AEReack%E7%8E%AF%E5%A2%83.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/4eda4cdf687e8f7805a4a6206693a068cc2474f0",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/webpack%E9%85%8D%E7%BD%AEReack%E7%8E%AF%E5%A2%83.md"
+    }
+  },
+  {
+    "name": "一个简单的抽奖例子.md",
+    "path": "JavaScript/一个简单的抽奖例子.md",
+    "sha": "050fc5db931ebdaebcc173dd46e92cc664a9dee7",
+    "size": 5155,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%8A%BD%E5%A5%96%E4%BE%8B%E5%AD%90.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%8A%BD%E5%A5%96%E4%BE%8B%E5%AD%90.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/050fc5db931ebdaebcc173dd46e92cc664a9dee7",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%8A%BD%E5%A5%96%E4%BE%8B%E5%AD%90.md",
+    "type": "file",
+    "content": "---\ntitle: webpack配置Reack环境\ndate: '2018-05-19'\ntags: \n  - JavaScript\n  - algorihm\n---\n# 一个简单的抽奖例子\n\n社团做活动需要一个抽奖的页面，偷懒做了一个简陋版的抽奖页面，太丑了就不放 Github 地址了。\n\n抽奖本质上就是一个`Random()`函数的时候，原理上还是不难的。为了方便，先将问题抽象一下。\n\n## 问题抽象\n\n先假设有七个人，已经通过数据库查询，或者 API 获得了样例数据：\n\n```json\n[\n    {\"name\": \"xiaohong\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaohuang\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaolan\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaolv\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaoqing\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaocheng\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaozi\", \"uuid\": \"xxxxxxxxxxx\"}\n]\n```\n\n规则是：一等奖一个，二等奖两个，三等奖三个。\n\n## 解决思路\n\n### 指定范围的随机数\n\nJS 里面`Math.random()`返回的是一个`[0.1)`之间的随机数。\n\n由此，这里给一种获得指定区间的随机数的方法。\n\n```javascript\n/**\n * 这里假设 min max 都是 Int ，且 min < max\n * @param  {number} min 返回的最小值\n * @param  {number} max 返回的最大值\n * @return {number}     获得制定范围的随机数，且 [min ,max） ,根据需求预处理为 Int\n */\nfunction godGiveYouLucky(min, max) {\n    return parseInt( Math.random() * (max - min) + min)\n}\n```\n更多参见：[Math.random()--MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/random)\n\n### 谁是 LuckyDogs\n\n在上面的基础上，想要实现抽取一等奖就已经很容易了。写一个函数，调用上面的成随机函数，由此获得一个中奖者。那二等，三等奖呢？重复调用两次，三次调用中奖函数，代码重复难免过多，写个`for`循环，但是每次都要写，也很麻烦。出于层次化和封装的考虑，设计两个函数，一个实现从给定的数组里面抽出一个中奖者，另一个就是封装一个`for`循环。\n\n#### 你是 LuckyDog\n\n简单想法就是：通过`Random()`得到一个随机数，这个随机数就是作为抽奖者数组的下标，再根据下标把相应元素取出来，放到一个结果集中，最后把抽奖者数组中的那个元素赋值为`undefined`，以做标记。这要就得到一个幸运儿。\n\n具体实现时，这里采用一个递归。\n```javascript\nfunction youAraluckyDog(arr) {\n    let luckyNum = godGiveYouLucky(0, arr.length)\n    let luckyDog = arr[luckyNum]\n    if( luckyDog == undefined )\n        return youAraluckyDog(arr)\n    arr[luckyNum] = undefined\n    return luckyDog\n\n}\n```\n\n这里有一个小问题就是如果你传入的数组全是`undefined`,这个函数就会掉入无限递归调用。由此我们需要添加一个判断条件：当传入的数组不为空的时候，才继续执行，否则返回一个`false`。\n\n```javascript\nfunction youAraluckyDog(arr) {\n    if(arr.every(val => val == undefined)) return false\n    // 同上\n}\n```\n\n#### 你们是 LuckyDogs\n\n抽出多个中奖者就很容易了。\n\n```javascript\nfunction youAraluckyDogs(count,src) {\n    let reciver = []\n    for (var i = 0; i < count; i++) {\n        reciver.push(youAraluckyDog(src))\n    }\n    return reciver\n}\n```\n\n## 使用实例\n\n```javascript\nfor (var i = 1; i < 4; i++) {\n    console.log( youAraluckyDogs(1,arr))\n}\n```\n\n结果：\n\n```javascript\n[ { name: 'xiaozi', uuid: 'xxxxxxxxxxx' } ]\n[ { name: 'xiaolv', uuid: 'xxxxxxxxxxx' },\n  { name: 'xiaocheng', uuid: 'xxxxxxxxxxx' } ]\n[ { name: 'xiaoqing', uuid: 'xxxxxxxxxxx' },\n  { name: 'xiaolan', uuid: 'xxxxxxxxxxx' },\n  { name: 'xiaohuang', uuid: 'xxxxxxxxxxx' } ]\n```\n\n## 总结\n\n基于 JS 自带的随机函数实现一个抽奖，难度不是很大。稍微有点难度在二次或多次抽取中奖者时，可能会出现的重复中奖的问题，对此采取了简化策略，一旦中奖就剔除抽奖队伍，放入中奖者队伍，原位置置空，问题就要就变成了判断某个索引是否为空，是的，再次递归调用该函数。\n\n## 完整代码\n\n```javascript\nvar arr = [\n    {\"name\": \"xiaohong\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaohuang\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaolan\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaolv\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaoqing\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaocheng\", \"uuid\": \"xxxxxxxxxxx\"},\n    {\"name\": \"xiaozi\", \"uuid\": \"xxxxxxxxxxx\"}\n]\n\nfunction godGiveYouLucky(from, to) {\n    return parseInt(from + Math.random() * to)\n}\n\nfunction youAraluckyDog(arr) {\n    if( arr.every( val => val == undefined ) ) return false\n\n    let luckyNum = godGiveYouLucky(0, arr.length)\n    let luckyDog = arr[ luckyNum ]\n\n    if( luckyDog == undefined )\n        return youAraluckyDog(arr)\n\n    arr[ luckyNum ] = undefined\n\n    return luckyDog\n\n}\n\nfunction youAraluckyDogs(count,src) {\n    let reciver = []\n\n    for (var i = 0; i < count; i++) {\n        reciver.push(youAraluckyDog(src))\n    }\n\n    return reciver\n}\n\nfor (var i = 1; i < 4; i++) {\n    console.log( youAraluckyDogs(i,arr))\n}\n```\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%8A%BD%E5%A5%96%E4%BE%8B%E5%AD%90.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/050fc5db931ebdaebcc173dd46e92cc664a9dee7",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%8A%BD%E5%A5%96%E4%BE%8B%E5%AD%90.md"
+    }
+  },
+  {
+    "name": "神奇的for循环.md",
+    "path": "JavaScript/神奇的for循环.md",
+    "sha": "127d5c65b5e2b6cc6b867c61fad08e1756e207ca",
+    "size": 2944,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/%E7%A5%9E%E5%A5%87%E7%9A%84for%E5%BE%AA%E7%8E%AF.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/%E7%A5%9E%E5%A5%87%E7%9A%84for%E5%BE%AA%E7%8E%AF.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/127d5c65b5e2b6cc6b867c61fad08e1756e207ca",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/%E7%A5%9E%E5%A5%87%E7%9A%84for%E5%BE%AA%E7%8E%AF.md",
+    "type": "file",
+    "content": "---\ntitle:  神奇的 for 循环\ndate: '2017-10-16'\ntags: \n  - JavaScript\n  - language-feature\n---\n\n## 小二先上点茶水\n\n猜猜会发生什么：\n\n```javascript\nvar funcs = [];\n\nfor ( var i = 0 ; i < 10 ; i ++ ) {\n    funcs.push( function() {\n        console.log(i);\n    })\n}\n\nfuncs.forEach( function ( func ) {\n    func();\n});\n\n```\n\n*例子来自《深入理解ES6》第一章 第8页*\n\n这是道 JS 的入（song）门（ming）题。\n\n打印出来的答案是：\n\n![](http://image.yidaqiang.cn/blog/js/for-1.png)\n\n没想到吧！\n\n## 等等，小二我要的不是啤酒\n\n为什么会这样呢？\n\n这里先解释一下，这段函数干了啥。这段代码主要就是构建了一个函数数组，存放了十个函数。再`for-each`遍历执行。\n\n![](http://image.yidaqiang.cn/blog/js/for-2.png)\n\n然而在数组里面的函数体却是`console.log(i)`。这里的`i`是`for ( var i ; i < 10 ; i ++)`处的引用，可以理解为“这里的`i`”和`for`申明的的`i`是同一个变量。`for`循环结束`i`变为`10`也导致，数组里的每个函数的函数体`console.log(i)`里的`i`也都变为了`10`。\n\n断点查看一下：\n\n![](http://image.yidaqiang.cn/blog/js/for-3.png)\n\n此时，`funcs`数组里有的一个函数。控制台执行这个函数。\n\n![](http://image.yidaqiang.cn/blog/js/for-4.png)\n\n这时打印的值不是一开始的 0 ，而是 1 了。\n\n同理第一个for循环结束以后就变为了 i 变为了 10 ，所有叫 i 的变量都是 10 了。\n\n代码改成这样大概更好理解：\n\n```javascript\nvar funcs = [];\n\nvar i;\n\nfor ( i = 0 ; i < 10 ; i ++ ) {\n    funcs.push( function() {\n        console.log(i);\n    });\n}\n\nfuncs.forEach( function ( func ) {\n    func();\n});\n\n```\n\n`i`的声明放到前面，实际上后`for-each`执行`func`访问的就是这个变量`i`。显然，结果的打印 10 次 10。一开始的代码等价于上面的代码。\n\n究其原因是因为 JS 的**变量提升机制**。这个机制有时很恶心，因为它可以把作用域搞的很乱，你不得不小心翼翼的处理这个问题。上面的例子就是一个典型。\n\n## 来点饮料吧\n\n解决方案1：\n```javascript\n\nvar funcs = [];\n\nvar i;\n\nfor ( i = 0 ; i < 10 ; i ++ ) {\n    funcs.push( ( function(value) {\n        return function() {\n            console.log(value);\n        }\n    } ( i ) ) );\n}\n\nfuncs.forEach( function ( func ) {\n    func();\n});\n\n```\n\n这里同时使用立即执行函数和闭包。\n\n在 ES6 有更简洁实现方式。\n\n方案2：\n\n```javascript\nvar funcs = [];\n\nfor ( let i = 0 ; i < 10 ; i ++ ) {\n    funcs.push( function() {\n        console.log(i);\n    });\n}\n\nfuncs.forEach( function ( func ) {\n    func();\n});\n\n```\n\n这里每次使用`let`声明，每次循环都会重新创建一个新变量。就不存在 ES5 之前的问题。\n\n## 最后来杯清水\n\nES6 引入了很多新的特性，来解决之前 JS 存在的问题。积极拥抱 ES6 时代的JS。\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/%E7%A5%9E%E5%A5%87%E7%9A%84for%E5%BE%AA%E7%8E%AF.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/127d5c65b5e2b6cc6b867c61fad08e1756e207ca",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/%E7%A5%9E%E5%A5%87%E7%9A%84for%E5%BE%AA%E7%8E%AF.md"
+    }
+  },
+  {
+    "name": "糟糕的JS.md",
+    "path": "JavaScript/糟糕的JS.md",
+    "sha": "8369aa495c40f563b1c513f7b41da937acf34c95",
+    "size": 347,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/%E7%B3%9F%E7%B3%95%E7%9A%84JS.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/JavaScript/%E7%B3%9F%E7%B3%95%E7%9A%84JS.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/8369aa495c40f563b1c513f7b41da937acf34c95",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/JavaScript/%E7%B3%9F%E7%B3%95%E7%9A%84JS.md",
+    "type": "file",
+    "content": "---\ntitle:  糟糕的JS\ndate: '2017-10-16'\ntags: \n  - JavaScript\n  - language\n---\n \n 糟糕的JS\n\n# 开篇\n\n最近又在开始看 JS，被 JS 糟糕的设计恶心的了，打算写一系列的专题文章来吐槽一下恶心人的 JS。主要的目的是了解 JS 一些奇特的特性（bug），产生的缘由。\n\n# 目录\n\n+   神奇的 for\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/JavaScript/%E7%B3%9F%E7%B3%95%E7%9A%84JS.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/8369aa495c40f563b1c513f7b41da937acf34c95",
+      "html": "https://github.com/yidafu/blog-post/blob/master/JavaScript/%E7%B3%9F%E7%B3%95%E7%9A%84JS.md"
+    }
+  },
+  {
+    "name": "software-must-install.md",
+    "path": "Linux/software-must-install.md",
+    "sha": "664542fdebdad04be4647ace3a60d322c75db7c1",
+    "size": 294,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/Linux/software-must-install.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/Linux/software-must-install.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/664542fdebdad04be4647ace3a60d322c75db7c1",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/Linux/software-must-install.md",
+    "type": "file",
+    "content": "---\ntitle: software-must-install\ndate: '2018-05-19'\ntags:\n  - Linix\n  - app\n---\n\n\n# First Of All\n\n**Manjaro**\n\n# Dev\n+ Atom\n+ git\n+ chrome\n+ shadowsock-qt\n+ DBeaver\n+ MariaDB\n+ Yakuake\n\n# img\n+ scrot(cli-only)\n+ shutter\n+ pinta\n\n# Download\n\n+ axel\n\n# Office\n\n+ wps-office\n+ netease-cloud-music\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/Linux/software-must-install.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/664542fdebdad04be4647ace3a60d322c75db7c1",
+      "html": "https://github.com/yidafu/blog-post/blob/master/Linux/software-must-install.md"
+    }
+  },
+  {
+    "name": "Nginx反向代理.md",
+    "path": "PHP/Nginx反向代理.md",
+    "sha": "d8a5a162a17643d0a9230e72be89382cbe70bccc",
+    "size": 2411,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/PHP/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/PHP/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/d8a5a162a17643d0a9230e72be89382cbe70bccc",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/PHP/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md",
+    "type": "file",
+    "content": "---\ntitle: Nginx 反向代理\ndate: '2018-05-07'\ntags:\n  - Nginx\n  - proxy\n---\n\n这里以部署一个`code-to-image`为例子，实例演示如何使用 Nginx 反向代理。\n\n# 设置子域名\n\n首先你的设置一个子域名和云解析，例如: code2img.domain.com\n\n>code2img.test.com 只是为了演示，实际操作请换成你的域名。\n\n我使用的阿里云\n\n![](../imgs/nginx-1.jpg)\n\n点击添加云解析\n\n![](../imgs/nginx-2.jpg)\n\n在主机记录输入子域名名。\n\n记录值填入云服务器 IP 地址。\n\n其余一般默认即可，点击确认。\n\n![](../imgs/nginx-3.png)\n\n一个子域名添加完成。\n\n# Nginx 代理\n\n这里我使用的 LNMP。添加一个子域名就非常简单。\n\n执行\n\n```shell\nlnpm vhost add\n```\n所有选项全部默认就行。\n\n![](../imgs/nginx-4.png)\n\n进入`/usr/local/nginx/conf/vhost`目录\n\n将`code2img.test.com.conf`改为一下内容\n\n```conf\nupstream dome {\n        server 127.0.0.1:8080;\n}\nserver\n    {\n        listen 80;\n        #listen [::]:80;\n        server_name code2.img.test.com ;\n        index index.html index.htm index.php default.html default.htm default.php;\n        root  /home/wwwroot/code2.img.test.com;\n\n        location / {\n            proxy_pass http://127.0.0.1:8080/;\n            proxy_set_header Host $host;\n            proxy_set_header X-Real-IP $remote_addr;\n            proxy_set_header X-Forwaraed-For $proxy_add_x_forwarded_for;\n        }\n\n        include none.conf;\n        #error_page   404   /404.html;\n\n        # Deny access to PHP files in specific directory\n        #location ~ /(wp-content|uploads|wp-includes|images)/.*\\.php$ { deny all; }\n\n        include enable-php.conf;\n\n        location ~ .*\\.(gif|jpg|jpeg|png|bmp|swf)$\n        {\n            proxy_pass http://127.0.0.1:8080;\n            expires      30d;\n        }\n\n        location ~ .*\\.(js|css)$\n        {\n            proxy_pass http://127.0.0.1:8080;\n            expires      12h;\n        }\n\n        location ~ /.well-known {\n            allow all;\n        }\n\n        location ~ /\\.\n        {\n            deny all;\n        }\n\n        access_log  /home/wwwlogs/code2.img.test.com.log;\n    }\n```\n\n最后重启 LNMP 就可以了。\n\n```shell\nlnmp restart\n```\n\n现在访问<https://code2img.test.com>就可以使用`code-to-img`了。\n\n 参考\n+ <http://www.nginx.cn/927.html>\n+ [LNMP 添加虚拟主机](https://lnmp.org/faq/lnmp-vhost-add-howto.html)\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/PHP/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/d8a5a162a17643d0a9230e72be89382cbe70bccc",
+      "html": "https://github.com/yidafu/blog-post/blob/master/PHP/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md"
+    }
+  },
+  {
+    "name": "PHP命令行脚本.md",
+    "path": "PHP/PHP命令行脚本.md",
+    "sha": "1772fe4f8468d1a4bea768b4aa224916bd2d87a8",
+    "size": 1490,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/PHP/PHP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%84%9A%E6%9C%AC.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/PHP/PHP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%84%9A%E6%9C%AC.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/1772fe4f8468d1a4bea768b4aa224916bd2d87a8",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/PHP/PHP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%84%9A%E6%9C%AC.md",
+    "type": "file",
+    "content": "---\ntitle: PHP命令行脚本\ndate: '2017-12-18'\ntags:\n  - php\n  - shell\n---\n\n## 汤头\n\n遇到一个问题:要把一个 git 库的 commit 重新拆分. 由于 git 的 commit 历史是不可以修改的.所以,可行方案只有 checkout 每个 commit 到一个单独的文件夹再做拆分.\n\n<!--more-->\n\n## 解决方案\n\n本来打算采用最简(fei)单(shi)方法, 手动操作(反正也就十几二十个 commit).\n\n在导师的建议下尝试用 PHP 写一个脚本来批量完成这个任务.\n\n## 菜!菜!!\n\n```php\n#!/usr/bin/php\n\n<?php\n$log  = [];\n$state;\n/*\n进入工作目录\n*/\nexec(\"cd ~/[path/to/git-repo] && git log\", $log, $state);\n\n$id = 0; /*编号*/\n/*\n@NOTE 小坑：linux换行必须使用**双引号**包裹字符串\n*/\nforeach ($log as $log_item) {\n    if ( preg_match(\"/^commit /\", $log_item ) ) {\n        $commit_id = substr($log_item, 6 );\n        print(\"checkout ... \" . $commit_id .\"\\n\");\n        $msg = [];\n        ++ $id;\n        /*\n        拼装命令\n        */\n        exec('cd ~/[path/to/git-repo] '\n                . ' && git reset --hard '\n                . $commit_id\n                . '&& cd ../ && cp -rf ./[git-repo] ./checkout-'\n                . $id . '-' . substr( $commit_id , 1, 6)\n            , $msg );\n        print_r(\"[info]:\" . $msg[0] . \"\\n\");\n    }\n}\n/*\n重置到最新的分支\n*/\nexec( 'cd ~/[path/to/git-repo] && git reset --hard ' . substr($log[0], 6) );\necho \"[info]: 重置回默认版本号 \\n\";\necho \"over! and enjoy!! \\n\";\n ?>\n```\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/PHP/PHP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%84%9A%E6%9C%AC.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/1772fe4f8468d1a4bea768b4aa224916bd2d87a8",
+      "html": "https://github.com/yidafu/blog-post/blob/master/PHP/PHP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%84%9A%E6%9C%AC.md"
+    }
+  },
+  {
+    "name": "React-Redux-Saga.md",
+    "path": "React/React-Redux-Saga.md",
+    "sha": "081b1748db9c19bbb09fda882d27ad708b7d2c45",
+    "size": 4487,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/React/React-Redux-Saga.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/React/React-Redux-Saga.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/081b1748db9c19bbb09fda882d27ad708b7d2c45",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/React/React-Redux-Saga.md",
+    "type": "file",
+    "content": "---\ntitle: React Redux & Redux Sage 使用示例\ndate: '2018-12-29'\ntags:\n  - react\n  - React-Redux\n  - Redux-Saga\ncategory: frontend\n---\n\n# 介绍\n\n这篇文章主要介绍 React 全家桶中状态管理`redux`及副作用解决方案的使用方法.\n\n# 使用\n\n### 起步\n\n首先先使用`react-rect-app`创建一个空的项目,\n\n```shell\ncreat-react-app redux-demo\n```\n\n添加依赖\n\n```shell\nyarn add redux react-redux redux-saga\n```\n\n>需要添加`redux`作为基本库,因为`react-redux`并不包含`redux`\n\n### 核心概念\n\n+ state: 用来描述应用的普通对象\n+ action: Action 就是一个普通 JavaScript 对象用来描述发生了什么\n+ reducer: reducer 是一个纯函数,只是一个接收 state 和 action，并返回新的 state 的函数\n\n### 实际使用\n\n目录结构:\n\n```\nredux-demo\n├── package.json\n├── src\n|   ├── App.js\n|   ├── index.js\n│   ├── components\n│   |   └── Counter.js\n│   └── redux\n│       ├── index.js\n│       ├── action\n│       │    └── index.js\n│       ├── constants\n│       │    └── index.js\n│       ├── reducers\n│       │    ├── index.js\n│       │    └── count.js\n│       ├── sages\n│       │    ├── index.js\n│       │    └── count.js\n├── config\n├── script\n└── test\n```\n\n## 引入redux\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport {Provider} from 'react-redux'\n\nimport store from './redux'\nimport App from './App'\n\nReactDOM.render(\n  <Provider store={store}>\n    <App />\n  </Provider>,\n  document.getElementById('root'))\n```\n\n## action\n\n一般的`action`定义为\n\n```js\nexport function plus(payload) {\n  return {\n    type: 'PLUS',\n    payload\n  }\n}\n```\n\n`type`指明了触发的`reducer`.\n\n```js\nexport default function( state = initialState, action ) {\n  switch(action.type) {\n    case 'PLUS': { // <<=== 这里就是 'PLUS' 对应 state 变化\n      return {\n        count: ++state.count,\n      }\n    }\n    // ...\n  }\n}\n```\n\n但是为了解耦, type一般会定义常量: `const PLUS = 'PLUS'`,统一放在`constants/index.js`里面.\n\n```js\nimport {PLUS} from '@/redux/contants'\n\nexport function plus(payload) {\n  return {\n    type: PLUS,\n    payload\n  }\n}\n\nexport default function( state = initialState, action ) {\n  switch(action.type) {\n    case PLUS: {\n      return {\n        count: ++state.count,\n      }\n    }\n    // ...\n  }\n}\n```\n\n## reducers\n\n`reducer`函数必须返回一个新的的`state`. \n\n一般`state`都是有个结构比较复杂的对象,这里就会涉及对象的**浅拷贝和深拷贝**,属性的覆盖.\n\n可以使用`Object.assin()`, rest 对象展开符.\n\n```js\ninitialState = {\n  list: [{a:1}, {b:2},{c:3}]\n}\nexport default function( state = initialState, action ) {\n  switch(action.type) {\n    case MAEGE_ARRAY: {\n      return {\n        list: [...state.list, ...action.payload]\n      }\n    }\n    // ...\n  }\n}\n```\n\n### 多个reducer\n\n当应用比较复杂的时候,往往会见`reducer` 拆分成多个文件.\n\n```js\nimport {combineReducers} from 'redux'\nimport cart from './cart'\nimport login from './login'\n\nexport default combineReducers({\n  cart,\n  login,\n})\n```\n\n## saga\n\n`react-redux`本身是不能做异步请求.`redux-saga`就是一个比较好的`redux`异步请求解决方案.\n\n引入`redux-saga`\n\n```js\nimport {createStore, applyMiddleware} from 'redux'\nimport createSagaMiddleware from 'redux-saga'\nimport reducers from './reducers'\nimport sagas from './sagas'\n\nconst sagaMiddleware = createSagaMiddleware()\nconst store = createStore(\n  reducers,\n  applyMiddleware(sagaMiddleware)\n)\n\nsagaMiddleware.run(sagas)\n\nexport default store\n```\n\n新建`sagas/`目录.\n\n同`reducer`也将`saga`拆分.\n\n```js\nimport {fork, all} from 'redux-saga/effects'\n\nimport { watchAddToCart} from './cart'\nimport {watchLogin} from './login'\n\nexport default function* root() {\n  yield all([\n    fork(watchAddToCart),\n    fork(watchLogin),\n  ])\n}\n```\n\n`redux-saga`示例:\n\n```js\nexport function* login(action) {\n  try{\n    const loginState = yield call(userLogin, action.payload)\n    if(loginState.data.log_state == 0){\n      yield put(actions.loginFailed({loginState: 'failed'}))\n    } else {\n      yield put(actions.loginSuccess(loginState.data))\n    }\n  } catch(err) {\n    yield put(actions.loginFailed({loginState: 'failed'}))\n  }\n}\n\nexport function* watchLogin() {\n  yield takeLatest(types.LOGIN_ACTION, login)\n}\n```\n\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/React/React-Redux-Saga.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/081b1748db9c19bbb09fda882d27ad708b7d2c45",
+      "html": "https://github.com/yidafu/blog-post/blob/master/React/React-Redux-Saga.md"
+    }
+  },
+  {
+    "name": "react-bootstrap-read-note.md",
+    "path": "React/react-bootstrap-read-note.md",
+    "sha": "025cd4140c458cb968586af11708f653081b4166",
+    "size": 7183,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/React/react-bootstrap-read-note.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/React/react-bootstrap-read-note.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/025cd4140c458cb968586af11708f653081b4166",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/React/react-bootstrap-read-note.md",
+    "type": "file",
+    "content": "---\ntitle: React Bootstrap 源码阅读笔记 1 - Button 组件\ndate: '2018-12-25'\ntags:\n  - react\n  - bootstrap\n  - react-bootstrap\ncategory: 'frontend'\n---\n\n\n# 前言\n\n之前一个项目有用到 React Bootstrap，现在稍微空闲下来趁这个时间读一下react-bootstrap 源码，学习一下别人是怎么写 react 组件。选择 React Bootstrap 的主要原因就是相比较于其他 UI 框架（Antd，Material-UI）， React Bootstrap 更加轻量，实现逻辑更简单，读起来会容易一些，干扰会更少。\n\n> 我选择的版本是目前最新的`v1.0.0-beta.3`。\n\n# 从`Button`开始\n\n罗马不是一天建成的，阅读先从简单基础的`Button`组件开始。\n\n源码在`src/Button.js`。\n\n## 第三方基础包\n\n```javasrcript\nimport classNames from 'classnames';\nimport React from 'react';\nimport PropTypes from 'prop-types';\nimport { elementType } from 'prop-types-extra';\n```\n\n第一个见过没用过，不过看名字就能猜出是干什么的。这里[classnames](https://github.com/JedWatson/classnames)地址，源代码实现非常简单，就是将`classNames(...args)`传入参经过判断展开成`classes`数组并通过`classes.join(' ')`方法合并起来。[^1]\n\n`prop-types-extra` 顾名思义是 React Bootstrap 对 prop-types 的补充。这里主要是为了引入一个新的 `PropType` `elementType`。`elementType`实际上是一个复合类型，等价于`PropTypes.oneOf(PropTypes.string, PropTypes.element, React.Fragment)`。PropTypes里面并没有`React.Fragment`这里只是为了说明方便。\n\n### PropType 定义\n\n和文档里面的 API 一一对应。\n\n```javasrcript\nstatic propTypes = {\n   bsPrefix: PropTypes.string,\n\n   variant: PropTypes.string,\n\n   size: PropTypes.string,\n\n   active: PropTypes.bool,\n\n   disabled: PropTypes.bool,\n\n   href: PropTypes.string,\n\n   type: PropTypes.oneOf(['button', 'reset', 'submit', null]),\n\n   as: elementType,\n };\n```\n\n####  bsPrefix\n\n```javasrcript\nconst classes = classNames(\n  className, // 用户自定义的类名\n  bsPrefix,\n  active && 'active',\n  `${bsPrefix}-${variant}`,\n  block && `${bsPrefix}-block`,\n  size && `${bsPrefix}-${size}`,\n);\n```\n\n各类 UI 组件库为了提高组件库可扩展性，包括 Antd， Material-UI，都会提供类似的自定义类名前缀。以 Antd 的`Button`为例，它的自定义类名前缀`prop`是`prefixCls`[^2]。同样的 React Bootstrap 中也有相同作用的`prop`：`bsPrefix`，`Button`组件里默认值是：`btn`。\n\n![](../imgs/RB-bsPrefix-1.png)\n\n```jsx\n<Button bsPrefix=\"woo\">Button</Button>\n```\n![](../imgs/RB-bsPrefix-2.png)\n\n### props 默认值。\n\n```javasrcript\nstatic defaultProps = {\n  variant: 'primary',\n  active: false,\n  disabled: false,\n  type: 'button',\n}\n```\n\n## render 函数\n\nrender 函数的渲染逻辑比较简单，如果`props`里面有`herf`属性就返回`<SafeAnchor />`组件（<a/>标签）。\n\n```javasrcript\nif (props.href) {\n  return (\n    <SafeAnchor\n      {...props}\n      as={as}\n      innerRef={innerRef}\n      className={classNames(classes, props.disabled && 'disabled')}\n    />\n  );\n}\n```\n\n没有`href` `prop`就返回一个`<button />`标签。\n\n```\nconst Component = as || 'button';\nif (innerRef) props.ref = innerRef;\nreturn <Component {...props} type={type} className={classes} />;\n```\n\n这里涉及到另一个有趣的问题: `dynamic component`。\n\n#### 动态组件\n\n看过 React Bootstrap 文档，就知道 React-Bootstrap 的组件都有一个**`as`**属性，用来指定组件的根元素。\n\n比如：\n\n```jsx\n<Button as=\"div\">Button</Button>\n```\n\n![](../imgs/RB-as-1.png)\n\n上面的`<Component />`根随传入`as`的变化而变化，*Magic*！，默认是`button`。\n\n熟悉 Vue 的话，上面的黑魔法完全不值一提。在 Vue 中内置了`<Component />`组件 [^3] [^4] [^5]，会根据`props.is`动态的生成组件。[一个官方例子](https://jsfiddle.net/chrisvfritz/o3nycadu/)\n\nReact Bootstrap 的`<Component {...props} type={type} className={classes} />`也是为了实现同样的。但 React 和 Vue 的实现机制还是不同的。从上面的 Vue 官方的例子可以看到，`props.is`可是一个自定义组件的**字符串名称**，而 React 就不可以。\n\n```jsx\nfunction TestComponent () {\n  return <div>Test Component </div>\n}\nclass App extends React.Component {\n  render() {\n    const Component = 'TestComponent'\n    return (\n        <Component />\n    );\n  }\n}\n```\n\n结果会报如下错误：\n\n```log\nindex.js:1446 Warning: <TestComponent /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.\n    in Test (at App.js:20)\n    in App (at src/index.js:7)\nindex.js:1446 Warning: The tag <TestComponent> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.\n    in Test (at App.js:20)\n    in App (at src/index.js:7)\n```\n\n众所周知 JSX 是一种语法糖，所以`<Component />`会被编译成`React.createElement(Component, ...)`, 而`Component = 'TestComponent'`,也就是React.createElement('TestComponent', ...)`[^6]。\n\n`React.createElement()`的一个参数可以是：字符串，React 组件，React Fragment（这就是是`prop-types-extra`里面的`elementType`），如果`React.createElement()`的第一个参数是字符串，那么它就必须是合法的 HTML 标签[^7]。显然`<TestComponent />`不是什么合法的 HTML 标签，也就无法被浏览器识别（The tag <TestComponent> is unrecognized in this browser）。但是，也不是没有变通的方法[^8]，`Component`变量被赋值字符串不行，那赋值为一个 React 组件呢？\n\n```jsx\nfunction TestComponent () {\n  return <div>Test Component </div>\n}\nclass App extends React.Component {\n  render() {\n    const Component = TestComponent\n    return (\n        <Component />\n    );\n  }\n}\n```\n\n![](../imgs/RB-dynamic-component-1.png)\n\nGood!\n\n## `createBootstrapComponent()`\n\n最后导出`Button`组件是并不是直接导出，而出通过`createBootstrapComponent()`函数包装后再导出。\n\n```js\nexport default createBootstrapComponent(Button, {\n  prefix: 'btn',\n  forwardRefAs: 'innerRef',\n});\n```\n使用`createBootstrapComponent()`函数给组件包装了一层`<Consumer />`，配合`<ThemeProvider />`就可以批量修改`bsPrefix`。[^9]\n\n# 总结\n\n总的来说 React Bootstrap 的实现还是比较简单，读起来也不是很吃力，从中也可以学到许多写组件的规范和技巧。\n\n[^1]:https://github.com/JedWatson/classnames/blob/2c76e87c4afdc7f6ceec5e10c0b9dba08cb4dcbb/index.js#L38\n[^2]: https://github.com/ant-design/ant-design/blob/75e30e2555818c0347a014df34c5de9552741463/components/button/button.tsx#L55\n[^3]: https://vuejs.org/v2/api/#component\n[^4]: https://vuejs.org/v2/guide/components.html#Dynamic-Components\n[^5]: https://vuejs.org/v2/guide/components-dynamic-async.html\n[^6]: https://stackoverflow.com/questions/29875869/react-jsx-dynamic-component-name\n[^7]: https://reactjs.org/docs/react-api.html#createelement\n[^8]: https://reactjs.org/docs/jsx-in-depth.html#choosing-the-type-at-runtime\n[^9]: https://react-bootstrap.netlify.com/getting-started/theming/#custom-styles-prefix\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/React/react-bootstrap-read-note.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/025cd4140c458cb968586af11708f653081b4166",
+      "html": "https://github.com/yidafu/blog-post/blob/master/React/react-bootstrap-read-note.md"
+    }
+  },
+  {
+    "name": "react-children.md",
+    "path": "React/react-children.md",
+    "sha": "6e891822fc8a737b6d18e3576201424eede2b8d1",
+    "size": 12405,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/React/react-children.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/React/react-children.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/6e891822fc8a737b6d18e3576201424eede2b8d1",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/React/react-children.md",
+    "type": "file",
+    "content": "---\ntitle: React.Children 源码阅读\ndate: '2018-12-28'\ntags:\n  - react\n  - React.Children\n  - datastruct\ncategory: frontend\n---\n\n# React.Children\n\n`React.Children`[^1]有`map`,`forEach`,`count`,`toAarry`,`only`五个方法。其中`map`,`forEach`,`count`,`toArray`实现基本相同都调用了`traverseAllChildren`函数，只是传入的参数稍有不同，后面以`map`为例详细说明,其它函数穿插其中讲解。`only`方法实现比较简单。\n\n## React.Children.map\n\n官方的函数签名：[^2]:\n\n```js\nReact.Children.map(children, function[(thisArg)])\n```\n\n### React.Children.map 粗略一瞥\n\n`packages/react/src/ReactChildren.js`\n\n`React.Children.map`是`mapChildren`的别名。\n\n```js\nfunction mapChildren(children, func, context) {\n  if (children == null) {\n    return children;\n  }\n  const result = [];\n\n  mapIntoWithKeyPrefixInternal(children, result, null, func, context);\n  return result;\n}\n```\n\n这里就是判断一下`children`是否为`null`，如果是就直接返回`children`. 声明一个`reuslt`数组用来存放`map`需要返回的值, 有点 C 的味道: 通过传入一个参数来带回结果.\n\n看一下`mapIntoWithKeyPrefixInternal`函数：\n\n```js\nfunction mapIntoWithKeyPrefixInternal(children, array, prefix, func, context) {\n  let escapedPrefix = '';\n  if (prefix != null) {\n    escapedPrefix = escapeUserProvidedKey(prefix) + '/';\n  }\n  const traverseContext = getPooledTraverseContext(\n    array,\n    escapedPrefix,\n    func,\n    context,\n  );\n  // `traverseAllChildren` 在这里是一个通用函数, `forEach`,`count`,`toAarry`\n  // 的实现都是通过这个函数实现的\n  traverseAllChildren(children, mapSingleChildIntoContext, traverseContext);\n  releaseTraverseContext(traverseContext);\n}\n```\n\n首先是`getPooledTraverseContext(...)`函数,它返回一个`traverseContext`对象. 这个`traverseContext`对象将在后面的遍历中发挥重要作用.\n\n```js\n{\n  result, // 最后`map`函数返回的结果数组,对于`forEach`函数这个参数被设为了`null`\n  keyPrefix, // 遍历到的 React Node 节点的 key\n  func, // 用户定义的回调函数,`map`函数的第一个参数\n  context, // 用户定义的 thisArg 对象,`map`函数的第二个参数\n  count: 0, // 子节点数,`count`函数的结果值就是从这里来的\n}\n```\n\n先看一下最后一行的\n\n```js\nreleaseTraverseContext(traverseContext)\n```\n\n根据函数名,可以得知它的作用就是释放`traverseContext`对象.它的功能实现也确实是这样,不过他还多做了一件事就是将 release 掉的的`traverseContext`放到一个`traverseContextPool`里面.\n\n### `traverseAllChildren` 包装\n\n`traverseAllChildren(...)`函数来实现了具体的遍历逻辑. 但`traverseAllChildren()`并没有做具体的实现,而是调用了`traverseAllChildrenImpl(...)`.\n\n```js\nfunction traverseAllChildren(children, callback, traverseContext) {\n  if (children == null) {\n    return 0;\n  }\n\n  return traverseAllChildrenImpl(children, '', callback, traverseContext);\n}\n```\n\n`traverseAllChildrenImpl()`函数的签名是:\n\n```js\nfunction traverseAllChildrenImpl(\n  children, // 被遍历的子树\n  nameSoFar, // `props.key`的累计值\n  callback, // 每个节点的回调函数, 这里还并不是用户传入的那个回调函数\n  traverseContext, // 就是上面`getPooledTraverseContext()`创建的`context`\n)\n```\n\n为什么要分成两个差不多的函数呢? 因为`traverseAllChildrenImpl()`内部发生了递归调用. `traverseAllChildrenImpl()`的参数里面多了一个`nameSoFar`, 它用来产生新 React node 对象的`key`, 递归的过程中每次调用时`nameSoFar`的值都不同的.这么做就是为了简化函数调用,调用`traverseAllChildren()`是不必传入一个默认的`''`空串.\n\n#### 返回值\n\n`traverseAllChildrenImpl()` 的返回值是`number`,即`children`的子树数量.\n\n对于`React.Children.count`, 其实现就是调用并返回`traverseAllChildren()`函数的结果值.\n\n```js\nfunction countChildren(children) {\n  return traverseAllChildren(children, () => null, null);\n  ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓\n  return traverseAllChildrenImpl(children, '', () => null, null)\n}\n```\n\n`React.Children.count`调用`traverseAllChildren()`就是调用了`traverseAllChildrenImpl()`. 但是在调用时除了第一个参数`children`其余都被设为了空. 所以在遍历过程中`traverseAllChildrenImpl()`依然触发回调,但不会产生任何作用.\n\n### 遍历逻辑\n\n![](../imgs/React-Children-traverseAllChildrenImpl.png)\n\n`traverseAllChildrenImpl()`流程就是判断是否是合法的 React 节点? 是, 调用`callback()`返回节点数1. 否, 则判断是否是 React 节点数组或者部署了`interator`接口没, 即`children`是否是可以**遍历**的? 是, 遍历每个元素调用`traverseAllChildrenImpl()`. 否则,就报错. 最后再返回子节点数.\n\n### 回调函数\n\n上面提到对于合法的 React 节点调用回调函数, 但这里的回调函数并不是用户传进来的, 而是针对`map`或`forEach`操作定制的一个函数.\n\n上面`mapIntoWithKeyPrefixInternal`函数\n\n```js\ntraverseAllChildren(children, mapSingleChildIntoContext, traverseContext);\n```\n\n`forEach`的实现代码:\n\n```js\nfunction forEachChildren(children, forEachFunc, forEachContext) {\n  if (children == null) {\n    return children;\n  }\n  const traverseContext = getPooledTraverseContext(\n    null,\n    null,\n    forEachFunc,\n    forEachContext,\n  );\n  traverseAllChildren(children, forEachSingleChild, traverseContext);\n  releaseTraverseContext(traverseContext);\n}\n```\n\n`getPooledTraverseContext`函数签名:\n\n```js\nfunction getPooledTraverseContext(\n  mapResult, // `map`操作返回的结果存放处\n  keyPrefix, // 给`props.key`准备的\n  mapFunction, // 这里才是传经来的 callback, `map`,`forEach`的第一个参数\n  mapContext, // 这个是 `thisArg`, `map`,`forEach`的第而个参数\n)\n```\n\n`map`函数传入的`callback`函数是`mapSingleChildIntoContext`,而`forEach`则是`forEachSingleChild`, 并且调用`getPooledTraverseContext()`少传入了`mapResult`,`keyPrefix`两个参数. 这就是应为`forEach`操作不需要返回值,也就没有用一个数组返回存放返回值,也不需要给每个要返回的 React 节点设置`key`, 自然`keyPrefix`这个参数也可以掉.\n\n`forEach`的`forEachSingleChild`实现就比较简单的,就是通过`func.call(...)`调用使用者传入的函数.\n\n```js\nfunction forEachSingleChild(bookKeeping, child, name) {\n  const {func, context} = bookKeeping;\n  func.call(context, child, bookKeeping.count++);\n}\n```\n\n`bookKeeping`对象就是前面的`traverseContext`对象.\n\n\n相比而言`map`的`mapSingleChildIntoContext`就复杂一点了\n\n```js\nfunction mapSingleChildIntoContext(bookKeeping, child, childKey) {\n  const {result, keyPrefix, func, context} = bookKeeping;\n  let mappedChild = func.call(context, child, bookKeeping.count++);\n  if (Array.isArray(mappedChild)) {\n    mapIntoWithKeyPrefixInternal(mappedChild, result, childKey, c => c);\n  } else if (mappedChild != null) {\n    if (isValidElement(mappedChild)) {\n      mappedChild = cloneAndReplaceKey(\n        mappedChild,\n        // Keep both the (mapped) and old keys if they differ, just as\n        // traverseAllChildren used to do for objects as children\n        keyPrefix +\n          (mappedChild.key && (!child || child.key !== mappedChild.key)\n            ? escapeUserProvidedKey(mappedChild.key) + '/'\n            : '') +\n          childKey,\n      );\n    }\n    result.push(mappedChild);\n  }\n}\n```\n\n首先还是调用用户传入的`callback`,传入`this`对象`context`,`child`节点和索引值, 就会得到一个`mappedChild`的返回值. 不同于这里有不同于原生`map`函数的地方: 先判断返回的`mappedChild`是不是数组, 是的就执行:\n\n````js\nmapIntoWithKeyPrefixInternal(mappedChild, result, childKey, c => c)\n````\n\n否则,就`push`进入`result`里面.\n\n### 遍历的深度\n\n\n有一个有意思的问题:\n\n```jsx\nReact.Children.count(\n  (\n    <div>\n      <div class=\"nest\">\n        0001\n        <div>0002</div>\n        <div>\n          0003\n          <div>0004</div>\n        </div>\n      </div>\n    </div>\n  ).props.children,\n  child => child.props.children\n),\n```\n\n上面的代码会出现递归吗?`return c.props.children`会使得`if (Array.isArray(mappedChild))`始终为`true`,那么会发生类似递归的事情吗?\n\n不会!\n\n注意到了没?\n\n```js\n// mapSingleChildIntoContext\nmapIntoWithKeyPrefixInternal(mappedChild, result, childKey, c => c);\n//                                                          ↑ ↑ ↑\n// mapChildren                                              ↓ ↓ ↓\nmapIntoWithKeyPrefixInternal(children,    result,  null,    func, context)\n```\n\n当用户在`React.Children.map`里面返回`child.props.children`,再次被遍历时实际上被调用的`map`回调就不再是`child => child.props.children`,变成了`c => c`, 也就不存在递归遍历的问题.\n\n这里和`React.Children.toArray`的实现时基本一样的,不过多了一个返回值.\n\n\n```js\nfunction toArray(children) {\n  const result = [];\n  mapIntoWithKeyPrefixInternal(children, result, null, child => child);\n  return result;\n}\n```\n### traverseContextPool\n\n`getPooledTraverseContext()`函数里有个有意思的地方, React 用了`traverseContextPool`数组来保存`traverseContext`.但是有点难以理解为什么要这么做呢?\n\n```js\nconst POOL_SIZE = 10;\nconst traverseContextPool = [];\n\nfunction getPooledTraverseContext(\n  mapResult,\n  keyPrefix,\n  mapFunction,\n  mapContext,\n) {\n  if (traverseContextPool.length) {\n    const traverseContext = traverseContextPool.pop();\n    traverseContext.result = mapResult;\n    traverseContext.keyPrefix = keyPrefix;\n    traverseContext.func = mapFunction;\n    traverseContext.context = mapContext;\n    traverseContext.count = 0;\n    return traverseContext;\n  } else {\n    return {\n      result: mapResult,\n      keyPrefix: keyPrefix,\n      func: mapFunction,\n      context: mapContext,\n      count: 0,\n    };\n  }\n}\nfunction releaseTraverseContext(traverseContext) {\n  traverseContext.result = null;\n  traverseContext.keyPrefix = null;\n  traverseContext.func = null;\n  traverseContext.context = null;\n  traverseContext.count = 0;\n  if (traverseContextPool.length < POOL_SIZE) {\n    traverseContextPool.push(traverseContext);\n  }\n}\n```\n\n```jsx\nReact.Children.map(\n  (\n    <div>\n      <div class=\"pre\">\n        <div>pre div 1</div>\n        <div>pre div 2</div>\n      </div>\n      <div>\n        0001\n      </div>\n      <div class=\"post\">\n        <div>post div 1</div>\n        <div>post div 2</div>\n      </div>\n    </div>\n  ).props.children, c => c.props.children\n)\n```\n\n这里是因为,就像上面说到的当你在`React.Children.map`中返回的 React 节点是数组时就会再次调用`mapIntoWithKeyPrefixInternal(mappedChild, result, childKey, c => c)`\n\n比如上面的遍历的第一个`<div class=\"pre\">...</div>`,这时返回的children数组`<div>pre div 1</div><div>pre div 2</div>`,调用了`mapIntoWithKeyPrefixInternal(...)`, `mapIntoWithKeyPrefixInternal(...)`又会调用`getPooledTraverseContext()`返回一个新的 `traverseContext`.当`<div>pre div 1</div><div>pre div 2</div>`遍历完了就会`releaseTraverseContext(traverseContext)`,把`traverseContext`压入`traverseContextPool`.\n\n遍历第二个`<div>0001</div>`,这里使用`traverseContext`是最开始创建那个,这个还没有被压入`traverseContextPool`.\n\n遍历第三个`<div class=\"post\">...</div>`的时候就就和第一个就比较类似了,不过这是调用`getPooledTraverseContext()`时,因为`traverseContextPool.length === 1`会从`traverseContextPool`中弹出第一个`<div class=\"pre\">...</div>`使用过的`traverseContextPool`重新赋值.\n\n最后三个`<div />`都遍历完了以后把最开始创建的`traverseContext`也压入`traverseContextPool`中.\n\n## 历史变动\n\n为了使得逻辑有更好的重新性, React 在 [#10227](https://github.com/facebook/react/pull/10227) 删除了原来的`PooledClass`, 将所有`PooledCall`的逻辑移到`ReactChildren.js`,变成`traverseContextPool`数组.这个变动是的`ReactChildren`与其他模块的依赖变少了,代码也变得更加简洁了\n\n[^1]: https://reactjs.org/docs/react-api.html#reactchildren\n[^2]: https://reactjs.org/docs/react-api.html#reactchildrenmap",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/React/react-children.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/6e891822fc8a737b6d18e3576201424eede2b8d1",
+      "html": "https://github.com/yidafu/blog-post/blob/master/React/react-children.md"
+    }
+  },
+  {
+    "name": "speech-registration-record.md",
+    "path": "React/speech-registration-record.md",
+    "sha": "3f89d683e5b6121e45792e1087cf9321fe3758b3",
+    "size": 6094,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/React/speech-registration-record.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/React/speech-registration-record.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/3f89d683e5b6121e45792e1087cf9321fe3758b3",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/React/speech-registration-record.md",
+    "type": "file",
+    "content": "---\ntitle: 演讲登记系统总结\ndate: '2019-01-04'\ntags:\n  - React\n  - react-bootstrap\ncategory: frontend\n---\n\n# 开发环境\n\n## 编辑器\n\nvs code\n\n### 插件列表\n\n+ atom keymap\n+ auto close tag\n+ auto rename tag\n+ beautify\n+ bracket pair colorizer\n+ editorconfig for vs code\n+ eggjs\n+ es7 React/Redux/GraphQL/React Native snippets\n+ eslint\n+ gitlens\n+ js refactor\n+ node.js extension pack\n+ npm\n+ npm intellisense\n+ path intellisense\n+ React PropTypes intellisense\n+ Search node_modules\n  \n## node\n\nnode.js 版本 v10.14.1\n\n## 脚手架\n\ncreate-react-app\n\n## package.json\n\n### 主要依赖\n\n+ axios HTTP 请求\n+ eslint\n+ jest 测试框架\n+ moment 日期处理\n+ react\n+ react-dom\n+ react-jss css in js\n+ react-bootstrap UI 库\n+ react-datepicker 日期选择器\n+ react-redux 状态管理\n+ react-router-bootstrap\n+ redux-saga 异步请求解决方案\n\n### cli\n\n+ start 项目启动(开发模式)\n+ build 构建项目\n+ test 单元测试\n+ lint 代码风格检查\n\n\n启动项目流程\n\n```shell\n# 1.clone\nhttps://github.com/dov-yih/speech-registration.git\ncd path/to/repo-dir/packages/frontend\n\n# 2.install dependence\nyarn\n\n# 3. run project\nyarn start\n```\n## 目录结构\n\n![](../imgs/srr-content.png)\n\n# 主要技术介绍\n\n## 路由\n\n### 路由分离\n\n为了避免路由的耦合.路由通过路由`route`文件注入.\n\n`pages/index.jsx`\n\n```jsx\n<Switch>\n  {\n    IndexRoutes.map(\n      ({path,exact,component},idx) => (\n        <Route\n          key={idx}\n          path={path}\n          exact={exact}\n          component={component}\n        />\n      )\n    )\n  }\n  <Route component={NotFound} />\n</Switch>\n```\n\n`IndexRoutes`来自于`route/index.js`\n\n```js\nexport default [{\n  path: '/next',\n  exact: true,\n  name: '下一周',\n  component: Next,\n}, {\n  path: '/archives',\n  exact: true,\n  name: '归档',\n  component: Archive,\n}, {\n  path: '/login',\n  exact: true,\n  name: '登陆',\n  component: Login,\n}, {\n  path: '/',\n  exact: true,\n  name: '首页',\n  component: Home,\n}]\n```\n\n### 正则匹配\n\n有个需求要求这个能够匹配`/16012345`这样的路由,经过重重查询终于找到了解决方案.\n\n```jsx\n<Route\n  path={`/:school_number(${SCHOOL_NUMBER_REGEXP_STR})`} \n  component={Admin}\n/>\n\nSCHOOL_NUMBER_REGEXP_STR = '[12][0-9]{7,7}'\n```\n\n### 私有路由\n\n因为`/admin/*`只有登录以后才可一个访问所以需要在前端做权限控制。\n\n使用`redux`保存全局的登记状态只有`isLogin`为`true`才可以访问.\n\n```jsx\nclass AdminIndex extends Component {\n  render() {\n    const {isLogin} = this.props\n    return (\n      <Row>\n       //...\n        <Col md={8} mdOffset={1}>\n          {isLogin\n            ? routes.map(\n              ({ path, exact, component }, idx) => (\n                <Route\n                  key={idx}\n                  path={url + path}\n                  exact={exact}\n                  component={component}\n                />\n              ))\n            : <Redirect to=\"/login\" />\n          }\n        </Col>\n      </Row>\n    )\n  }\n}\nexport default connect(state => {\n  const { user: isLogin } = state\n  return { isLogin }\n})(AdminIndex)\n```\n\n实际上这里可以再封装成一个`PrivateRoute`组件\n\n```jsx\nclass PrivateRoute extends Component {\n  render() {\n    const {isLogin,path, exact, component} = this.props\n    if(isLogin) {\n      return (\n        <Route\n          key={idx}\n          path={url + path}\n          exact={exact}\n          component={component}\n        />\n      )\n    }\n    return <Redirect to=\"/login\" />\n  }\n}\nexport default connect(state => (\n  {isLogin: state.user.isLogin}\n))(PrivateRoute)\n```\n\n## 登陆\n\n加密库使用的是`jsencrypt`\n\n为了将来易于修改学号,密码的验证规则,学号密码的正则表达式统一的放在了`@/global`里面\n\n```js\nexport const SCHOOL_NUMBER_RULE = /^[12][0-9]{7,7}$/\n\nexport const PASSWORD_RULE = /^[0-9a-zA-Z!@#$%^&*_=+]{6,20}$/\n```\n\n```js\nsubmit = async () => {\n  // ...\n  const { sNo, password } = this.state\n\n  let sign = new JSEncrypt()\n  sign.setPublicKey(PUBLIC_KEY)\n\n  // 加密密码\n  let encryptedPasswd = sign.encrypt(password)\n  \n  // login request\n\n  return true\n}\n```\n\n## 登录框的垂直居中问题\n\n关于垂直居中,参考 EasyMock 实现的.核心代码如下:\n\n```css\n.parent {\n  width: 300px ;\n  height: 300px;\n  position: relative;\n}\n.child {\n  position: absolute;\n  top: 0; \n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100px;\n  height: 100px;\n  margin: auto;\n}\n```\n\n这个问题如果使用`flex`就很好解决.只要将`align-item`和`justify-content`设为`center`就可以满足要求。\n\n## 请求库\n\n请求库使用的自己封装的`resource-oriented-request`\n\n`network/base.js`\n\n```js\nimport API,{baseURL} from 'resource-oriented-request'\n\nexport default\n@baseURL('http://localhost:7001')\nclass Base extends API { }\n```\n\n`network/admin.js`\n\n```js\nimport Base from './base'\n// ..\nexport default class Admin extends Base {\n  static prefix = '/admin'\n\n  static headers = {\n    authorization: 'Bearer ' + state.user.token\n  }\n}\n```\n\n使用:\n\n```js\nAdmin.get(params)\n\nAdmin.post(data)\n```\n\n# 遇到的问题\n\n## link tags 位置不正确\n\n![image](https://user-images.githubusercontent.com/22924331/47474529-f508b180-d849-11e8-8ccd-0c1dbeb721db.png)\n\n参考链接:\n\n\n+ https://github.com/cssinjs/react-jss/issues/127\n+ http://cssinjs.org/setup/?v=v8.1.0#specify-dom-insertion-point\n+ https://stackoverflow.com/questions/46916402/how-to-add-visible-html-comment-in-jsx\n\n这个问题还是因为 react-jss 插入的`style`标签的顺序在`link`标签之前.\n\n解决方法\n\n直接在 `public/index.html`插入`link`标签\n\n## \\<Link/>与\\<MenuItem>的冲突\n\n因为`react-bootstrap`的`<MenuItem/>`会被渲染成`<a/>`标签,和`react-router`的`<Link />`组件冲突.两者都会被渲染成`<a />`冗余了,不用`<Link/>`组件做跳转的话很显然非常糟糕的.所幸,`react-bootstrap`提供了一个解决方案`react-router-bootstrap`\n\n```jsx\nimport {LinkContainer} from 'react-router-bootstrap'\n// ...\n<LinkContainer to=\"/speech\">\n  <MenuItem eventKey={3.1}>记录</MenuItem>\n</LinkContainer>\n```",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/React/speech-registration-record.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/3f89d683e5b6121e45792e1087cf9321fe3758b3",
+      "html": "https://github.com/yidafu/blog-post/blob/master/React/speech-registration-record.md"
+    }
+  },
+  {
+    "name": "static-blog-generator.md",
+    "path": "React/static-blog-generator.md",
+    "sha": "6e6074093aedd1bb5f8d52d62b7a8a0f495216d2",
+    "size": 6874,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/React/static-blog-generator.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/React/static-blog-generator.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/6e6074093aedd1bb5f8d52d62b7a8a0f495216d2",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/React/static-blog-generator.md",
+    "type": "file",
+    "content": "---\ntitle: 基于 Gatsby 的静态博客生成 \ndate: '2019-01-04'\ntags:\n  - react\n  - gatsby\n  - generator\ncategory: frontend\n---\n\n# 动机\n\n现在流行的静态博客生成器不少,比如: Hexo, Jekyll.但是,我想要一个写作和生成分离的静态生成器,所以就有了这个项目.另一个原因就是想做一个项目折腾一下.\n\n## `Gatsby`\n\n`Gatsby`是目前最流行的`React`静态网站生成器.建立在`React`强大的生态,`graphq`技术之上.\n\n项目从最简单的 hellow word start: `gatsby-starter-hello-world`开始开发.\n\n项目目录如下:\n\n![](../imgs/blog-generator-content.png)\n\n## 实现的功能\n\n+ [x] 首页文章列表\n+ [x] 文章分页\n+ [x] 分类\n+ [x] 标签\n+ [x] 归档\n+ [x] 代码高亮\n\n## 文章格式约定\n\n```\n---\ntitle: 基于 Gatsby 的静态博客生成 \ndate: '2019-01-04'\ntags:\n  - react\n  - gatsby\n  - generator\ncategory: frontend\n---\n\n// context\n```\n\n## 文章列表\n\n参考:gatsby-graphql-qurey[^1]\n\n```jsx\n\n// @NOTE http://es6.ruanyifeng.com/#docs/string#标签模板\nexport const query = graphql`\n  query {\n    allMarkdownRemark(\n      // 排序方式: 按日期降序\n      sort: {\n        fields: [frontmatter___date], \n        order: DESC\n      }\n      filter: {\n        fields: {\n          // 去掉没有分类的\n          category: {\n            ne: \"Null\"\n          }\n        }\n      }\n      // 首页展示 10 条\n      limit: 10\n    ) {\n      // 文章总数,给分页器的\n      totalCount\n      edges {\n        // 具体的文章简略信息\n        node {\n          id\n          frontmatter {\n            title\n            date(formatString: \"DD MMMM, YYYY\")\n          }\n          fields {\n            slug\n            category\n          }\n          excerpt\n        }\n      }\n    }\n  }\n`\n```\n\n这有个点`/index`和`/post`实际展示的同样的内容,`/ == /post`.\n\n## 文章内容页\n\n主要就是遍历`edges`数组,对每个`edge`调用一次`createPaqge`.\n\n这里不一样的地方就是`edges`用`previous`和`next`两个字段,其值是`前一页和后一页的链接.\n```js\nedges.forEach(({\n  node,\n  next,\n  previous\n}) => {\n  const preSlug = previous ? previous.fields.slug : ''\n  const nextSlug = next ? next.fields.slug : ''\n  // 创建文章内容页\n  createPage({\n    path: node.fields.slug,\n    component: path.resolve('./src/templates/BlogPost.jsx'),\n    context: {\n      slug: node.fields.slug,\n      pre: preSlug,\n      next: nextSlug,\n      tags: uniqTags\n    },\n  })\n})\n```\n## 文章分页\n\n实现文章分页,引入的`gatsby-paginate`插件.这个插件主要的做的事情就是根据传入`pageLenght`把`edges`数组分割,在调用`createPage`函数创建页面.\n\n```js\ncreatePaginatedPages({\n  edges: edges,\n  createPage: createPage,\n  pageTemplate: path.resolve('./src/templates/MainPagination.jsx'),\n  pageLength: 10,\n  pathPrefix: 'posts',\n  context: {\n    totalCount: totalCount,\n    tags: uniqTags,\n  }\n})\n```\n\n## 分类\n\n相比于标签,分类更简单一些.分类就是:`1<-->n`,而标签则是:`n<-->n`\n\n思路就是,把每篇文章的分类取出来,对相同的分类进行合并.\n\n```js\n// 按照分类分组\nlet categories = _.groupBy( edges, 'node.fields.category')\nObject.keys(categories).forEach(categoryName => {\n  // 取出统一分类所有文章\n  let edegs = categories[categoryName]\n  // 创建分页\n  createPaginatedPages({\n    edges: edegs,\n    createPage: createPage,\n    pageTemplate: path.resolve('./src/templates/MainPagination.jsx'),\n    pageLength: 10,\n    pathPrefix: `categories/${categoryName}`,\n    context: {\n      totalCount: edegs.length,\n      category: categoryName,\n    }\n  })\n})\n```\n\n## 标签\n\n```js\n// 第一步：找到所有的 Tags\nlet tags = edges\n  // 去掉所有是 null 的tags\n  .filter( (edge) => edge.node.frontmatter.tags !== null)\n  // 所有返回的 tag 和 node.frontmatter.tags 变为小写\n  .map(edge => edge.node.frontmatter.tags.map((tag,idx,arr) => arr[idx] = tag.toLowerCase()))\n\n// 第二步：把 Tags 平坦化，去重\ntags = _.flatten(tags) // 平坦的 tags\nlet uniqTags = _.uniqWith( // 去重\n  tags,\n  (one, anther) => one === anther\n)\n// 第三步：把数据结构转变为： [ {tag: string, nodes: [node,node]} ]\nlet TagNodes = []\nuniqTags.forEach(tag => {\n  let tagGroup = edges.filter(edge => {\n    if (edge.node.frontmatter.tags && edge.node.frontmatter.tags.includes(tag)) {\n      return edge.node\n    }\n  })\n  TagNodes.push({ tag: tag, nodes: tagGroup })\n})\n\n// 第四步：创建页面\nTagNodes.forEach(tagNode => {\n  createPaginatedPages({\n    edges: tagNode.nodes,\n    createPage: createPage,\n    pageTemplate: path.resolve('./src/templates/MainPagination.jsx'),\n    pageLength: 10,\n    pathPrefix: `tags/${tagNode.tag}`,\n    context: {\n      totalCount: tagNode.nodes.length,\n      tags: uniqTags,\n    }\n  })\n})\n```\n\n## 归档\n\n归档和前面的分类类似,不过是按照日期分组.\n\n```js\nlet archives = _.groupBy(edges, function(edge) {\n  // 按照 YYYY/MM 分组\n  let postCreatedAt = new Date(edge.node.frontmatter.date)\n  return postCreatedAt.getFullYear() + '/' + postCreatedAt.getMonth()\n})\n// 同分类实现\nObject.keys(archives).forEach(date => {\n  let edegs = archives[date]\n  createPaginatedPages({\n    edges: edegs,\n    createPage: createPage,\n    pageTemplate: path.resolve('./src/templates/MainPagination.jsx'),\n    pageLength: 10,\n    pathPrefix: `archives/${date}`,\n    context: {\n      totalCount: edegs.length,\n      date,\n    }\n  })\n})\n```\n\n## 代码高亮\n\n代码高亮是手动实现的.实际上有代码高亮的插件,同样是基于`prismjs`.\n\n把代码高亮的逻辑封装成了一个函数`str2codeblock`.\n\n就是取出`/<pre><code class=\"language-(.*?)\">([\\s\\S]+?)<\\/code><\\/pre>/g`匹配的字符串,调用`Prism.highlight`函数进行高亮转换,最后返回就可以了.\n\n```js\nexport default (rawCodString) => {\n  // @see https://segmentfault.com/a/1190000002640851\n  // @see https://blog.csdn.net/lxcnn/article/details/4756030\n  return rawCodString.replace(/<pre><code class=\"language-(.*?)\">([\\s\\S]+?)<\\/code><\\/pre>/g, \n    (match,p1,p2) => {\n      // @FixME Prism 不支持 Shell 的语法高亮\n      p1 = loadPrismLanguage(p1) ? p1 : 'html'\n\n      const codeBlock = Prism.highlight( p2, Prism.languages[p1], p1)\n      return `<pre class=\"language-${p1}\"><code class=\"language-${p1}\">${codeBlock}</code></pre>`\n    })\n}\n```\n\n在展示文章内容是在调用这个函数即可.\n\n```jsx\nrender() {\n  let { html } = this.props\n  html = str2CodeBlack(html)\n  return (\n    <div dangerouslySetInnerHTML={{ __html: html }}  >\n    </div>\n  )\n}\n```\n\n# 总结\n\n上面简单描述了一下涉及到的博客数据的处理,在 Gatsby 的帮助先很多步骤变得简单很多.而且 Gastby 的生态也越来越丰富,很多的功能都有相应的插件.\n\n[^1]: https://www.gatsbyjs.org/tutorial/part-four/#your-first-graphql-query",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/React/static-blog-generator.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/6e6074093aedd1bb5f8d52d62b7a8a0f495216d2",
+      "html": "https://github.com/yidafu/blog-post/blob/master/React/static-blog-generator.md"
+    }
+  },
+  {
+    "name": "atom-插件推荐-实用.md",
+    "path": "atom/atom-插件推荐-实用.md",
+    "sha": "f4975b5e02bd11322f43e46e886dc5ca838c5eb4",
+    "size": 672,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E5%AE%9E%E7%94%A8.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E5%AE%9E%E7%94%A8.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/f4975b5e02bd11322f43e46e886dc5ca838c5eb4",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E5%AE%9E%E7%94%A8.md",
+    "type": "file",
+    "content": "---\ntitle: Atom 插件推荐-实用\ndate: '2017-10-09'\ntags: \n  - atom\n  - markdown\n---\n# sync-settings\n\n好用不解释，看这里：<https://blog.csdn.net/qq_40197828/article/details/80294090>\n\n# IDE\n\nIDE 特性基础差件，必装\n\n+ atom-ide-ui\n\nIDE 特性语言包，选装\n\n+ ide-java\n+ ide-typescrip\n+ ide-php\n+ ide-go\n+ ide-python\n+ ide-css\n+ ide-json\n+ ide-html\n+ ...\n\n调试支持\n\n+ atom-ide-debugger-node\n+ atom-ide-debugger-gdb\n+ atom-ide-debugger-python\n+ atom-ide-debugger-react-native\n+ atom-ide-debugger-react-ocaml\n\n# Git\n\n+ git-plus\n+ git-control\n+ git-time-machime\n+ git-log\n\n# Tranlate\n\n+ trans-en-zh 强烈推荐\n+ google-translate-model 需翻墙\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E5%AE%9E%E7%94%A8.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/f4975b5e02bd11322f43e46e886dc5ca838c5eb4",
+      "html": "https://github.com/yidafu/blog-post/blob/master/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E5%AE%9E%E7%94%A8.md"
+    }
+  },
+  {
+    "name": "atom-插件推荐-有趣.md",
+    "path": "atom/atom-插件推荐-有趣.md",
+    "sha": "c262ee9cafd04eb0c18a65ff5fb8f74e45274653",
+    "size": 325,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E6%9C%89%E8%B6%A3.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E6%9C%89%E8%B6%A3.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/c262ee9cafd04eb0c18a65ff5fb8f74e45274653",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E6%9C%89%E8%B6%A3.md",
+    "type": "file",
+    "content": "---\ntitle: Atom 插件推荐-有趣\ndate: '2017-10-09'\ntags: \n  - atom\n  - markdown\n---\n\n+ Activate Power Mode\n\n![](https://cloud.githubusercontent.com/assets/688415/11615565/10f16456-9c65-11e5-8af4-265f01fc83a0.gif)\n\n![](https://cloud.githubusercontent.com/assets/10590799/18817237/876c2d84-8321-11e6-8324-f1540604c0bd.gif)\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E6%9C%89%E8%B6%A3.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/c262ee9cafd04eb0c18a65ff5fb8f74e45274653",
+      "html": "https://github.com/yidafu/blog-post/blob/master/atom/atom-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-%E6%9C%89%E8%B6%A3.md"
+    }
+  },
+  {
+    "name": "atom下Markdown写作指南.md",
+    "path": "atom/atom下Markdown写作指南.md",
+    "sha": "610f4aea6340ed44f1f1d2b2ec2a06aec6aeac35",
+    "size": 1955,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/atom/atom%E4%B8%8BMarkdown%E5%86%99%E4%BD%9C%E6%8C%87%E5%8D%97.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/atom/atom%E4%B8%8BMarkdown%E5%86%99%E4%BD%9C%E6%8C%87%E5%8D%97.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/610f4aea6340ed44f1f1d2b2ec2a06aec6aeac35",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/atom/atom%E4%B8%8BMarkdown%E5%86%99%E4%BD%9C%E6%8C%87%E5%8D%97.md",
+    "type": "file",
+    "content": "---\ntitle: Markdown 编辑器\ndate: '2017-10-09'\ntags: \n  - atom\n  - markdown\n---\n\n市面上有不少 Markdown 的编辑器，比如[这些][a001]。这些编辑器各有千秋，而大多支持 PDF 导出的都是收费软件。其中，颜值与功能并存的就是我最钟爱的就是 Atom 。Atom 漂亮的 UI 无需多言，而且它还有免费的插件支持 PDF 导出。\n\n# 来来吃菜吃菜\n\n+   language-markdown<br>markdown 语法扩展\n+   linter-markdown<br>语法检查\n+   markdown-preview-plus<br>如名所说\n+   markown-scroll-sync<br>预览栏同步滚动插件\n+   markdown-themeable-pdf || markdown-pdf <br>PDF 转化插件\n+   pdf-view<br>atom 里面查看 PDF\n+   tool-bar-markdown-writer<br>Markdown 工具栏\n+   markdown-table-format<br>表格格式化工具\n+   Markdown-Writer<br>一系列增强功能，可同步静态博客，如：jekyll，hexo\n+   markdown-img-paste<br>直接使用`ctrl+v`粘贴图片\n\n# 不要客气\n\n### linter-markdown\n\nlinter-markdown 需要预先安装`linter`基础插件。\n\n### PDF 转换\n\n**这个插件要求 Node 环境。**\n\n可能有报错：\n>AssertionError: html-pdf: Failed to load PhantomJS module. You have to set the path to the PhantomJS binary using 'options.phantomPath'\n\n打开命令行在**当前家目录**下执行\n```sh\nnpm install phantomjs-prebuilt\n```\n如果被墙了[可以参考这里][a003]\n\n### 工具栏\n\n这个插件依赖于`tool-bar-main`，需要预先安装。\n\n# 来来再添一碗饭\n安装之前应该保证有 node 环境，和 VC++。[参考][a004]\n\n# 效果预览\n\n![](atom-markdown.png)\n\n[这里有更多有趣的插件。][a002] [客服热线][a005]\n\n[a001]:https://github.com/wizardforcel/markdown-simple-world/blob/master/1.md\n[a002]:https://github.com/kompasim/atom-plugins\n[a003]:http://blog.csdn.net/dream_an/article/details/51800523\n[a004]:https://github.com/atom/atom/blob/1.18-releases/docs/build-instructions/windows.md\n[a005]:http://baidu.com\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/atom/atom%E4%B8%8BMarkdown%E5%86%99%E4%BD%9C%E6%8C%87%E5%8D%97.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/610f4aea6340ed44f1f1d2b2ec2a06aec6aeac35",
+      "html": "https://github.com/yidafu/blog-post/blob/master/atom/atom%E4%B8%8BMarkdown%E5%86%99%E4%BD%9C%E6%8C%87%E5%8D%97.md"
+    }
+  },
+  {
+    "name": "基于gogs的自主git服务.md",
+    "path": "git&github/基于gogs的自主git服务.md",
+    "sha": "d8e3add1b0d3a5e5638af4f084c91976a418489c",
+    "size": 3624,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/git&github/%E5%9F%BA%E4%BA%8Egogs%E7%9A%84%E8%87%AA%E4%B8%BBgit%E6%9C%8D%E5%8A%A1.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/git&github/%E5%9F%BA%E4%BA%8Egogs%E7%9A%84%E8%87%AA%E4%B8%BBgit%E6%9C%8D%E5%8A%A1.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/d8e3add1b0d3a5e5638af4f084c91976a418489c",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/git%26github/%E5%9F%BA%E4%BA%8Egogs%E7%9A%84%E8%87%AA%E4%B8%BBgit%E6%9C%8D%E5%8A%A1.md",
+    "type": "file",
+    "content": "---\ntitle: 基于gogs的自主git服务\ndate: '2018-05-12'\ntags: \n  - git\n  - gogs\n---\n\n# 基于Gogs的自主git服务\n\ngogs 的优点：安装简单，配置要求小。\n\n>操作建议:查看最新的官方英文安装文档\n\n## 新建一个`git`用户\n\n```shell\nsudo useradd git\n```\n\n如果你不想折腾，这一步就非常重要了。原因是后面需要选择一个用户作为*运行用户*，如果你不添加`git`用户的话，你就会选择`root`作为 Gogs 的运行用户（理所当然不是吗？）。然后，一切搞好断开 SSH 连接以后，你会发现`root`用户无法登录，如果你只有一个`root`用户的话，**恭喜你系统重装了解一下**，开玩笑啦( • ̀ω•́ )✧。别慌张，你只要重启一下服务器就可以解决，其主要目的是为了杀死正在运行的 Gogs 进程，你有另外的方法也可以。\n\n## 获得发行包\n\n进入 git 用户目录。\n\n```shell\ncd /home/git\n```\n\n获得安装包。请到官网选择最新的发行版。\n\n```shell\nwget https://dl.gogs.io/0.11.43/gogs_0.11.43_linux_amd64.tar.gz\n```\n\n![](../imgs/gogs-download.png)\n\n你也可以到官方的 github 仓库去获取最新版本。地址是这个：<https://github.com/gogits/gogs/releases>\n\n![](../imgs/gogs-github-releases.png)\n\n解压\n\n```shell\ntar -zxvf gogs_0.11.43_linux_amd64.tar.gz\n```\n\n## 安装\n\n进入解压好的目录\n\n```shell\ncd gogs_0.11.43_linux_amd64.tar.gz\n```\n\n```shell\n./gogs web\n```\n\n访问<http://your-ip:3000>即可进入图形化安装界面。\n\n\n到这一步请务必确保`3000`端口是可以访问的。强烈建议先参考[这里](#port)\n\n![](../imgs/gogs-web-install.png)\n\n这里我是虚拟机演示的，实际操作请使用你的 IP:3000 访问\n\n配置数据库：\n\n你需要输入的是你的数据库用户名和密码。注意：你的数据库需要自己手动创建, Gogs 不会替你创建数据库，建议数据名为`gogs`\n\n![](../imgs/gogs-install-db.png)\n\n应用配置：\n\n到这一步特别重要的是运行用户的设置，域名的设置。\n\n**记住：将谁设为运行用户以后就不能通过 SSH 登录了，如果你只有一个`root`用户请务必先添加一个`git`用户**这是 Gogs 处于安全性考虑而设计的。如果出现了`root`用户登录失败，也是有方法的，参见 [Trouble Sheet](#sheet)。\n\n至于为什么要将域名设置好？这关系着你使用`git clone url`时，URL 是否美观，如果你不介意通过使用这样的命令：`git clone git@127.0.0.1:3000/usr-name/repo`这样丑陋的命令，这两个使用默认就可以了选项默认。如果你想要通过域名访问的话，就需要配置 Nginx 反向代理，相关内容参考[这里](#nginx)\n\n![](../imgs/gogs-install-application-setting.png)\n\n最后点击安装。\n\n![](../imgs/gogs-install-begin.png)\n\n一切顺利的你就可以安装好了你的 git 自助服务。\n\n访问<http://your-ip:3000>\n\n![](../imgs/gogs-finish.png)\n\n恭喜你！安装结束！\n\n是不是很方便？赶快去享受你的自建 git。\n\n>第一个注册的用户默认为管理员\n\n## Trouble Sheet\n\n### 如何后台运行\n\n方法很多,我使用的`screen`。\n\n```shell\ncd gogs/\n\nscreen -S gogs\n\n./gogs web\n```\n\n关闭 SSH 链接，依旧运行。\n\n### <span id=\"port\" >云服务器开放端口</span>\n\n+ <https://help.aliyun.com/document_detail/25471.html>\n\n### <span id=\"nginx\">Nginx 反向代理</span>\n\n+ [Nginx 反向代理](../PHP/Nginx反向代理.md)\n\n### 不小心用root权限install,现在root无法远程登录ssh怎么破?\n\n[Run as root and cannot login with SSH](https://github.com/gogits/gogs/issues/349)\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/git&github/%E5%9F%BA%E4%BA%8Egogs%E7%9A%84%E8%87%AA%E4%B8%BBgit%E6%9C%8D%E5%8A%A1.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/d8e3add1b0d3a5e5638af4f084c91976a418489c",
+      "html": "https://github.com/yidafu/blog-post/blob/master/git&github/%E5%9F%BA%E4%BA%8Egogs%E7%9A%84%E8%87%AA%E4%B8%BBgit%E6%9C%8D%E5%8A%A1.md"
+    }
+  },
+  {
+    "name": "why-dont-choice-ruby.md",
+    "path": "ruby/why-dont-choice-ruby.md",
+    "sha": "ed704f7ceeb597dd3993da446d1d6bd3bda950dd",
+    "size": 4355,
+    "url": "https://api.github.com/repos/yidafu/blog-post/contents/ruby/why-dont-choice-ruby.md?ref=master",
+    "html_url": "https://github.com/yidafu/blog-post/blob/master/ruby/why-dont-choice-ruby.md",
+    "git_url": "https://api.github.com/repos/yidafu/blog-post/git/blobs/ed704f7ceeb597dd3993da446d1d6bd3bda950dd",
+    "download_url": "https://raw.githubusercontent.com/yidafu/blog-post/master/ruby/why-dont-choice-ruby.md",
+    "type": "file",
+    "content": "---\ntitle: why-dont-choice-ruby\ndate: '2018-05-07'\ntags:\n  - ruby\n  - language\n---\n# 为什么不选 Ruby\n\n问题定性：目前正在寻找一门后端语言，补全前后端开发。而可供选择后端语言众多，本文主要回答的就是为什么不选 Ruby 作为后端主力语言。\n\n<!--\n核心：\n自己对 Ruby 没有信心，\n全栈，还是补充技术栈？\nhappiness or sense of security ？\n期望：\n能在前端，后端都找工作\n-->\n## 我有 Java， PHP ... ...\n\n众所周知，**PHP 是世界上最好的语言**。\n\n我为什么不用 PHP 呢？\n\n她有：\n+ 丰富的文档，\n+ **简单**，**灵活**的语法，\n+ 有基于 C 的扩展，\n+ **无需编译**，\n+ 超多的框架，\n+ **广泛的使用**。\n\n八成以上的网站都是有 PHP 写的，广大的用户基数，PHP 也在随着技术发展而进步，肯定的 PHP 还将存活很长很长的时间。\n\n而且，PHP 7.0 发布以后 PHP 已经成为最快的脚本语言了，同时 PHP 开发团队承诺下一代 PHP 将会使用 JIT 技术，到时 PHP 的速度还会大幅提升。\n\n这么多优点为什么不选 PHP。\n\n但是，我现在把 PHP 作为一门休闲语言。为什么？**我想学一点别的东西。**说实话 PHP 非常便捷，各种库函数，数组类型，但也是这个，让我觉得 PHP 不能给我更多的新奇感，和 C 一脉相承。呆在 PHP 的圈子里，感觉没有新的东西可以得到。\n\n我知道，Java 是**企业级的语言**。\n\n不用说 J2EE ，不用说 SSM ，不用说 IDEA ，就一句话 Java 就是为大型 Web 架构而生。\n\nJava 有的成熟的库，各种各样的解决方案。OOP 也非常适合大型项目开发和管理。\n\n而且，**市场需要众多的 Java 开发**，工作岗位是有的。\n\n除了，写起来繁琐其他就不是大问题。\n\n## 快还是慢？\n\n<https://benchmarksgame-team.pages.debian.net/benchmarksgame/faster/yarv-mri.html>\n\n开发快，还是运行慢？\n\n程序员想要开发便捷的，但是企业需要的并不是这个。所以，**前途**，还是**钱途**。\n\n同样慢的 Python 就比，Ruby 好得多了去了，好多领域都很红火。但是，Ruby 就只在 Web 领域。\n\n## 小众\n\n坚挺，但排名基本在第十名左右。\n\n## 全栈？\n\nRails 是个全栈框架，但潮流是微服务和前后端分离。\n\n## 异步！\n\n现在异步适合成为一代语言的标配，JavaScript `promise`,`async`,`await`，为高并发而生的 Go。PHP 也试图加入其中：`yield`关键字，Swoole 扩展。但是后天改造，肯定定不上先天就有。Ruby 3 也说也加入异步特性，但就能改善 Ruby 慢的特点。\n\n## 前景？\n\nPython 和 Ruby 差不多的年龄，现在命运不一。\n\n## 不想要`end`\n\n稍稍吐槽一下 Ruby，以`end`结尾，干嘛不和 Python 一样缩进控制就行了。\n\n## 工作少？\n\n不好招人？\n\n感觉 Ruby ，国内一点都不普及。实习生的工作太少，一点都不好找。\n\n满大街的 Java，PHP，JS，Python 培训，却不见什么 Ruby 培训班。\n\n<!-- 我不是悲观，而是阐述一个容易被忽略的事实——什么样的语言能力才能给程序员最大的钱途。\n其实一个以前是主流的语言的程序员，才是最容易找到高收入和稳定工作的人。别的不说ada，cobol，Fortran 这个三个曾经的热门语言，现在的就业环境就比java好的多，收入也高的多。而我们每次争论语言的时候，一些人总是害怕他们现在学的东西过时。不用问他们一定以为过时的就没有人用了，工作也不好找了。但是事实恰恰相反啊。如果只是以编程为一种谋生的手段，那么这些过时的语言要比流行的和将要流行的语言更好。什么才是最大的中庸呢？这才是最大的中庸。而最可怜的人其实才是那些以应用为指导的，也就是赶时髦的人，他们只能吃别人的剩饭，进行最激烈的竞争。\n\n因此要是想获得一个好的钱途，要么就要走在潮头前面来引导潮流，要么就跟在潮头后面收拢溃败的残部。当然这两头都是少数人，而往往这两部分人又都是是一群人。 -->\n\n<https://ruby-china.org/topics/32157>\n\n<https://www.zhihu.com/question/54572105>\n\n<https://www.quora.com/What-makes-Rails-a-framework-worth-learning-in-2017>\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/yidafu/blog-post/contents/ruby/why-dont-choice-ruby.md?ref=master",
+      "git": "https://api.github.com/repos/yidafu/blog-post/git/blobs/ed704f7ceeb597dd3993da446d1d6bd3bda950dd",
+      "html": "https://github.com/yidafu/blog-post/blob/master/ruby/why-dont-choice-ruby.md"
+    }
+  }
+]

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <navbar></navbar>
-    <router-link to="/">Jump to home</router-link>
+    <!-- <router-link to="/">Jump to home</router-link> -->
     <letter-list />
   </div>
 </template>
@@ -9,9 +9,9 @@
 <script>
 // @ is an alias to /src
 import Button from 'squid/Button';
-import Image from 'squid/Image';
-import LetterList from 'components/LetterList';
-import Navbar from 'components/Navbar';
+// import Image from 'squid/Image';
+import LetterList from 'component/LetterList';
+import Navbar from 'component/Navbar';
 
 export default {
   name: 'post',
@@ -19,7 +19,7 @@ export default {
     's-button': Button,
     LetterList,
     Navbar,
-    graph: Image,
+    // graph: Image,
   },
 };
 </script>
@@ -29,7 +29,7 @@ export default {
     position: relative;
     // padding-top: 10em;
     min-width: 1000px;
-    background: url(../../assets/rain-slim.jpg) no-repeat fixed;
+    background: url(../../asset/images/rain-slim.jpg) no-repeat fixed;
     background-size: cover;
     // min-width: 1000px;
   }

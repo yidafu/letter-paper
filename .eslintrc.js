@@ -13,13 +13,34 @@ module.exports = {
     //
     // // @fixable 一个缩进必须用两个空格替代
     'indent': [
-        'error',
-        2,
-        {
-            SwitchCase: 1,
-            flatTernaryExpressions: true
-        }
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+        flatTernaryExpressions: true
+      }
     ],
-    'eol-last': ["error", "always"]
+    'eol-last': ["error", "always"],
+    "arrow-parens": "off",
+    "valid-jsdoc": "off",
+    "array-bracket-spacing": "off",
+    "no-unused-vars": "off",
+    "no-else-return": "off",
+    "strict": "off",
+    "linebreak-style": "off",
+    "newline-per-chained-call": "off",
+    "no-irregular-whitespace": [
+      "error",
+      {
+        "skipComments": true
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "only-multiline",
+        "objects": "only-multiline"
+      }
+    ]
   }
 };

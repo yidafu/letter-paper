@@ -6,7 +6,6 @@
 
 <script>
 import Letter from './Letter';
-import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'letter-list',
@@ -14,23 +13,7 @@ export default {
   components: {
     'post-summary': Letter,
   },
-  computed: {
-    ...mapGetters([
-      'postIDs',
-    ]),
-  },
-  async created() {
-    await this.getPosts();
-  },
 
-
-  methods: {
-
-    ...mapActions([
-      'getPosts',
-    ]),
-
-  }
 };
 </script>
 

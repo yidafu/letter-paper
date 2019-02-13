@@ -1,4 +1,3 @@
-const Model = require('../mocks/article/list');
 
 module.exports = app => {
 
@@ -6,22 +5,12 @@ module.exports = app => {
 
     async index() {
       const { ctx } = this;
-      await ctx.render('home/index.js', Model.getPage(1, 10));
+      await ctx.render('home/index.js');
     }
 
-    async client() {
-      const { ctx } = this;
-      await ctx.renderClient('home/index.js', Model.getPage(1, 10));
-    }
     async post() {
       const { ctx } = this;
       await ctx.render('post/index.js', { msg: 'test message' });
-    }
-    async pager() {
-      const { ctx } = this;
-      const pageIndex = ctx.query.pageIndex;
-      const pageSize = ctx.query.pageSize;
-      ctx.body = Model.getPage(pageIndex, pageSize);
     }
 
   };
