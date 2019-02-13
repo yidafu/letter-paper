@@ -3,7 +3,9 @@ module.exports = app => {
   const init = app.middleware.initVisit({
     isVisit: false
   });
-  app.get('/', init, app.controller.home.index);
-  app.get('/post', app.controller.home.post);
-  // app.get('/pager', app.controller.home.pager);
+  const { controller: { home, tag, post, archive }} = app;
+  app.get('/', init, home.index);
+  app.resources('posts', '/posts', post);
+  app.resources('tags', '/tags', tag);
+  app.resources('archive', '/archives', archive);
 };
